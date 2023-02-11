@@ -1,41 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    color: white;
 }
+
+main {
+    height: 100vh;
+}
+
+
 header {
+    overflow: hidden;
+    position: fixed;
     width: 100%;
     text-align: center;
     background: #909caf;
+    z-index: 999;
 }
+
+.welcome {
+    margin: 0;
+    padding: 0;
+    background: #002b58;
+    height: 80vh;
+    width: 100%;
+    position: absolute;
+    margin: 5% 0 0 0;
+    text-align: center;
+}
+
+.welcome-text, .welcome-img {
+    width: 50%;
+}
+
+.bid-button {
+    text-decoration: none;
+    padding: 0.8%;
+    border-radius: 3%;
+    border: 1px solid #2a2a23;
+    color: #191919;
+    background: #ffd256;
+    margin: 2% 0 0 -4%;
+    position: absolute;
+}
+
+.welcome-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy-right {
+    width: 100%;
+    text-align: center;
+    background: #909caf;
+    padding: 2% 0;
+}
+
 .wrap {
     width: 80%;
     display: flex;
-    align-content:center;
+    align-content: center;
+    justify-content: center;
 }
-.logo{
-    width:25%;
-    margin:0 2%; 
 
+.search-bar {
+    width: 60%;
 }
-form{
-    width: 40%;
-    display:flex;
+
+.web-logo, .login {
+    width: 20%;
+}
+
+.logo {
+    width: 80%;
+    margin: 0 2%;
+}
+
+form {
+    display: flex;
     margin: 1% 0 0 0;
 }
-li{
-    
+
+.last {
+    float: right;
+}
+
+.second-nav {
+    padding: 2px;
+    text-align: center;
+    background: #52678E
+}
+
+    .second-nav ul li {
+        display: inline;
+        margin-left: 5%;
+    }
+
+.txtSearch {
+    width: 90%;
+    padding: 1%;
+    margin: 0.2%;
+}
+
+.searchButton {
+    padding: 0 1%;
+}
+
+.EveryInfo {
+    display: flex;
+}
+
+    .EveryInfo h1 {
+        width: 100%;
+        display: block;
+    }
+
+.info {
+    width: 25%;
+    padding: 4%;
+}
+
+footer {
+    padding: 10px 0 0 0;
+    text-align: center;
+    background: #52678E;
+    position:absolute;
+    margin-bottom:0;
 }
