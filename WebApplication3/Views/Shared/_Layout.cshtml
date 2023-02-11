@@ -11,14 +11,24 @@
 <body>
     <header>
         <div class="wrap">
-        <img src="~/logo.png" class="logo" />
-        <form class="form-inlinbe" asp-action="search" asp-controller="home">
+        <a asp-action="index"><img src="~/logo.png" class="logo" /></a>
+        <form  asp-action="search" asp-controller="home">
             <input type="text" />
             <input type="submit" value="Search">
         </form>
+        <a asp-action="login" >Login</a>
         </div>
+        
        
     </header>
+    <nav>
+        <ul>
+            <li>Electronics</li>
+            <li>Home</li>
+            <li>Fashion</li>
+            <li>Books</li>
+        </ul>
+    </nav>
 
    
     <div class="container">

@@ -16,19 +16,26 @@ html {
 body {
   margin-bottom: 60px;
 }
-header{
-    width:100%;
+header {
+    width: 100%;
     text-align: center;
+    background: #909caf;
 }
 .wrap {
     width: 80%;
     display: flex;
+    align-content:center;
 }
 .logo{
-    width:10%;
-    margin:0 2%;
+    width:25%;
+    margin:0 2%; 
 
 }
 form{
+    width: 40%;
+    display:flex;
     margin: 1% 0 0 0;
+}
+li{
+    
 }
