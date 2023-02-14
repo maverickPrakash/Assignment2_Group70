@@ -60,6 +60,7 @@ header {
     background: #ffd256;
     margin: 2% 0 0 -4%;
     position: absolute;
+    box-shadow: 1px 1px  7px 0px grey
 }
 
 .welcome-container {
@@ -87,7 +88,7 @@ header {
     width: 60%;
 }
 
-.web-logo, .login {
+.web-logo {
     width: 20%;
 }
 
@@ -147,3 +148,6 @@ footer {
     position:absolute;
     margin-bottom:0;
 }
+.login{
+    margin:0.2%;
+}   
