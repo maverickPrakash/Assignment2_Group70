@@ -237,6 +237,10 @@ top:80%;
     flex-wrap: wrap;
     color: black;
 }
+#mainDisplay a {
+   
+    color: black;
+}
 .cateDis {
     padding:2%;
     width:33%;
