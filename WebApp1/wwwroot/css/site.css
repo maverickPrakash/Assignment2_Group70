@@ -30,6 +30,15 @@ main {
     height: 100vh;
 }
 
+.register:hover {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.login:hover {
+    background-color: white;
+    border-radius: 3px;
+}
 
 header {
     overflow: hidden;
@@ -81,23 +90,40 @@ header {
 }
 
 .wrap {
-    width: 80%;
+    height: 56px;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
 }
 
 .search-bar {
-    width: 60%;
+    display: flex;
+    align-items: center;
+    padding: 0, 10%;
+    height: 40px
 }
 
-.web-logo, .login {
-    width: 20%;
+.web-logo {
+    display: flex;
+    float: left;
+    padding-left: .1rem;
+    padding-top: .5rem;
+    width: 86px;
+}
+
+.login, .register {
+    display: flex;
+    float: right;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .logo {
-    width: 80%;
-    margin: 0 2%;
+    text-decoration: none;
+    width: 10rem;
+    margin: 2%;
 }
 
 form {
@@ -110,25 +136,52 @@ form {
 }
 
 .second-nav {
-    padding: 2px;
+    padding: 5px;
     text-align: center;
     background: #52678E
 }
 
     .second-nav ul li {
-        display: inline;
-        margin-left: 5%;
+         display: inline;
+         margin-left: 5%;
     }
 
+.home:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.elc:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.fash:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.books:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+
 .txtSearch {
-    width: 90%;
-    padding: 1%;
+    width: 25rem;
+    padding: 1.5%;
     margin: 0.2%;
 }
 
 .searchButton {
+    margin-left: 10px;
     padding: 0 1%;
 }
+
 
 .EveryInfo {
     display: flex;
@@ -167,6 +220,7 @@ CSS for images in table
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-a{
-    color:white;
+a {
+    color: white;
+    text-decoration: none;
 }

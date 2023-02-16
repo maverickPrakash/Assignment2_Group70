@@ -240,5 +240,19 @@ namespace WebApp1.Controllers
         {
           return _context.Product.Any(e => e.Id == id);
         }
+
+        public async Task<bool> AddBid(int productId)
+        {
+            var product = await _context.Product.FindAsync(productId);
+
+            if (product == null)
+            {
+                return false;
+            }
+
+            product.Cost += 1;
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

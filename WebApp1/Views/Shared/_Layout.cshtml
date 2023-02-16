@@ -15,22 +15,27 @@
                 <a asp-action="index" asp-controller="Home"><img src="../logo.png" class="logo" /></a>
             </div>
             <div class="search-bar">
-                <form asp-controller="Search" asp-action="QueueResult">
+                <form asp-controller="Search" asp-action="index">
                     <input type="text" name="item" class="txtSearch" />
                     <input type="submit" value="Search" class="searchButton">
                 </form>
             </div>
-            <div class="login">
-                <a asp-action="login" class="last">Login</a>
+            <div class="btns">
+                <div class="register">
+                    <a asp-action="register" class="sec-last">Register</a>
+                </div>
+                <div class="login">
+                    <a asp-action="login" class="last">Login</a>
+                </div>
             </div>
         </div>
 
         <nav class="second-nav">
             <ul>
-                <li><a>Electronics</a></li>
-                <li><a>Home</a></li>
-                <li><a>Fashion</a></li>
-                <li><a>Books</a></li>
+                <li><a asp-action="" class="elc">Electronics</a></li>
+                <li><a asp-action="index" asp-controller="Home" class="home">Home</a></li>
+                <li><a asp-action="" class="fash">Fashion</a></li>
+                <li><a asp-action="" class="books">Books</a></li>
             </ul>
         </nav>
 
