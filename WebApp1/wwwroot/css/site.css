@@ -196,7 +196,7 @@ form {
 }
 
 footer {
-    top:155%;
+    top:165%;
     width:100%;
     padding: 10px 0 0 0;
     text-align: center;
@@ -231,3 +231,19 @@ position:relative;
 background:white;
 top:80%;
 }
+
+#mainDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+}
+.cateDis {
+    padding:2%;
+    width:33%;
+    text-align:center;
+}
+
+    .cateDis img {
+        width: 300px;
+        height: 300px;
+    }
