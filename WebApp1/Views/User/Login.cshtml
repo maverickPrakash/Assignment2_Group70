@@ -1,0 +1,18 @@
+﻿@model WebApp1.Models.Login
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <form asp-action="Login" method="post">
+        <input type="text" asp-for="Username" id="Username" />
+        <label for="Username">Username</label>
+        <input type="password" asp-for="Password" id="Password" />
+        <label for="Password">Password</label>
+        <button tupe="submit" >Login</button>
+        @Html.ValidationMessageFor(x => x.Username)
+        @Html.ValidationMessageFor(x => x.Password)
+    </form>
+
+</div>
