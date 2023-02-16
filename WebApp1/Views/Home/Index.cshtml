@@ -2,16 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="welcome container">
+<div class="welcome container  pt-5">
     <div class="welcome-container">
         <div class="welcome-text">
             <h1>Welcome to LocoTrade</h1>
             <h3>Best Place for biding item</h3>
-            <a asp-controller="Search" asp-action="queue" class="bid-button">Start Bidding</a>
+            <a asp-fragment="mainDisplay" class="bid-button">Start Bidding</a>
         </div>
         <div class="welcome-img">
             <img src="Header_img.png">
         </div>
 
     </div>
+</div>
+<div id="mainDisplay">
+
 </div>
