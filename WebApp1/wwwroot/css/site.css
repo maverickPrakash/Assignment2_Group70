@@ -63,7 +63,9 @@ header {
 .welcome-text, .welcome-img {
     width: 50%;
 }
-
+main {
+    padding-top: 56px;
+}
 .bid-button {
     text-decoration: none;
     padding: 0.8%;
