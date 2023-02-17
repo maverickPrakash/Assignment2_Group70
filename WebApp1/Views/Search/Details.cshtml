@@ -48,11 +48,11 @@
     </dl>
 </div>
 <hr />
-<div class="edit">
+<div class="del-edit">
+    <a class="del" asp-action="Delete" asp-route-id="@Model?.Id">Delete</a>
     <!-- This for enabling edit method for the items -->
-   <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>   
+   <a class="edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
 </div>
-
 <div class="back">
     <a asp-action="Index">Back to List</a>
 </div>
