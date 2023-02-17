@@ -51,10 +51,12 @@ It is for creating/adding an item into database
          
          </div>
          <div class="bid">
-      	   
-                   <button class="bidbtn">Add Bid</button>        
+      	    <form method="post" asp-action="IncrementCost" asp-route-id="@item.Id" class="bid">
+                <button type="submit" class="bidbtn">Add Bid</button>
+            </form>    
       	 </div>
         
+           
         </div>
          <hr>
  }
