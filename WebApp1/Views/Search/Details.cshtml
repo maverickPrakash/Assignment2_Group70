@@ -4,10 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="det">Details</h1>
 
-<div>
-    <h4>Product</h4>
+<div class="details">
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -48,9 +47,12 @@
         </dd>
     </dl>
 </div>
-<div>
+<hr />
+<div class="edit">
     <!-- This for enabling edit method for the items -->
-    <!-- <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> -->   
- 
+   <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>   
+</div>
+
+<div class="back">
     <a asp-action="Index">Back to List</a>
 </div>

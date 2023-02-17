@@ -299,4 +299,68 @@ top:80%;
     background-color: white;
     border-radius: 4px;
 }
+/*Create Item Page*/
+.det, .crt, .pt-5, .edt {
+    margin-left: 10px;
+    margin-top: 4rem;
+}
+
+.create_form {
+    display: block;
+    margin-top: 50px
+}
+.create_form label {
+    display: inline-block;
+    width: 170px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.create_form input {
+    display: inline-block;
+    width: 200px;
+    border-radius: 3px;
+}
+.form-group {
+    margin-bottom: 20px
+}
+
+input.btn-primary {
+    margin-left: 20rem;
+    width: 9rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold
+}
+.form-btn {
+    margin-left: 1rem;
+}
+.back {
+    margin-left: 10px;
+}
+/*Item Deatils and Edit Page*/
+.details {
+    padding-left: 20px;
+}
+.edit {
+    margin-left: 20rem;
+    width: 4rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center
+}
+
+
+
 
