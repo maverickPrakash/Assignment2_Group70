@@ -14,66 +14,49 @@ It is for creating/adding an item into database
 
 -->
 
-<table class="table text-white">
-    <thead>
-        <tr>
-            <th>
-                <!-- asp-route-NameOfParamater    - use to give the controller the arguments it needs without giving a form submission  -->
-                @Html.DisplayNameFor(model => model.Name) 
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Name" asp-route-order="ASC"> < </a>
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Name" asp-route-order="DESC"> > </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cost)
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Cost" asp-route-order="ASC"> < </a>
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Cost" asp-route-order="DESC"> > </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Asset_condition)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Category" asp-route-order="ASC"> < </a>
-                <a asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Category" asp-route-order="DESC"> > </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>            
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Asset_condition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>                
 
-                <!-- Use for getting the path of the image as well as the name of the image came from the database  -->
-
-                @{
+  @foreach (var item in Model) {
+    <div class="container">
+	   
+            <div class="pic">
+                      @{
                     string url = "../images/" + item.Image + ".jpg";
                 }
                 <a asp-action="Details" asp-route-id="@item.Id">
                         <img class="item-image" src="@url" alt="Sample Photo" />
-                </a>                
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </a>
+              </div>
+  		    <div class="cols">
+    		
+                <br>
+                <p> <span class="first">Item Name: </span> 
+      			@Html.DisplayFor(modelItem => item.Name)
+                  </p>
+                  <br>
+                  <p><span class="first">Description: </span>
+      			@Html.DisplayFor(modelItem => item.Description)
+                  </p>
+                  <br>
+                  <p><span class="first">Cost:    </span>
+                @Html.DisplayFor(modelItem => item.Cost)
+                </p>
+                <br>
+                <p><span class="first">Condition: </span> 
+                @Html.DisplayFor(modelItem => item.Asset_condition)
+                </p>
+                <br>
+                <p><span class="first">Category: </span>
+                 @Html.DisplayFor(modelItem => item.Category)
+                 </p>
+         
+         </div>
+         <div class="bid">
+      	   
+                   <button onclick="location.href='@Url.Action("IncrementCost", "Search", new { id = Model.Id})'">Add Bid</button>        
+      	 </div>
+        
+        </div>
+         <hr>
+ }
+ 
+ 

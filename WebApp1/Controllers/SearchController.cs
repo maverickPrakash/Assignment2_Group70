@@ -22,7 +22,7 @@ namespace WebApp1.Controllers
         // GET: Search
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Product.ToListAsync());
+            return View(await _context.Product.ToListAsync());
         }
 
         // GET: Search/Details/5
@@ -55,27 +55,30 @@ namespace WebApp1.Controllers
             return View();
         }
 
-       
+
         //POST : Search QueueResult
         public async Task<IActionResult> QueueResult(String item)
         {
-            if (item != null) {
+            if (item != null)
+            {
                 ViewBag.Item = item;
                 return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
-            } else
+            }
+            else
             {
                 return View("Index", await _context.Product.ToListAsync());
             }
-            
+
         }
 
-        
+
         //SORTING TABLE IN QUEUERESULT
         public async Task<IActionResult> QueueResultSort(String item, String field, String order)
         {
             ViewBag.Item = item;
             ViewBag.Order = order;
-            switch (order) {
+            switch (order)
+            {
                 case "DESC":
                     switch (field)
                     {
@@ -109,7 +112,7 @@ namespace WebApp1.Controllers
 
                     }
 
-                default:                   
+                default:
                     switch (field)
                     {
                         case "Name":
@@ -126,16 +129,16 @@ namespace WebApp1.Controllers
 
                     }
             }
-            
-            
 
-                        
+
+
+
 
         }
 
 
         // POST: Search/Create
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Cost,Asset_condition,Category,Image")] Product product)
@@ -166,7 +169,7 @@ namespace WebApp1.Controllers
         }
 
         // POST: Search/Edit/5
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Cost,Asset_condition,Category,Image")] Product product)
@@ -231,29 +234,33 @@ namespace WebApp1.Controllers
             {
                 _context.Product.Remove(product);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-          return _context.Product.Any(e => e.Id == id);
+            return _context.Product.Any(e => e.Id == id);
         }
 
-        public async Task<bool> AddBid(int productId)
+        [HttpPost, ActionName("Bid")]
+        public async Task<IActionResult> IncrementCost(int id)
         {
-            var product = await _context.Product.FindAsync(productId);
-
+            var product = await _context.Product.FindAsync(id);
             if (product == null)
             {
-                return false;
+                return NotFound();
             }
 
             product.Cost += 1;
             await _context.SaveChangesAsync();
-            return true;
+
+            return RedirectToAction(nameof(Index));
         }
 
+
     }
+
+
 }
