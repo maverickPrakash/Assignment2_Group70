@@ -140,35 +140,17 @@ form {
     background: #52678E
 }
 
-    .second-nav ul li {
-         display: inline;
-         margin-left: 5%;
-    }
+.second-nav ul li {
+       display: inline;
+        margin-left: 5%;
+ }
 
-.home:hover {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2px;
-}
 
 .elc:hover {
     background-color: white;
     border-radius: 5px;
     padding: 2px;
 }
-
-.fash:hover {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2px;
-}
-
-.books:hover {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2px;
-}
-
 
 .txtSearch {
     width: 25rem;
@@ -299,4 +281,20 @@ top:80%;
     background-color: white;
     border-radius: 4px;
 }
+
+h1{
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-bottom: 20px
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+.row, .bk_list {
+    padding-left: 30px;
+    font-size: 15px;
+}
+
 
