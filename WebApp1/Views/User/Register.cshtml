@@ -1,5 +1,7 @@
 ﻿@model WebApp1.Models.Registration
-
+@{
+    Layout = "~/Views/Shared/_LoginRegisterLayout.cshtml";
+}
 <div>
     <form asp-action="Register" method="post">
         <input type="text" asp-for="Username" id="Username" />
