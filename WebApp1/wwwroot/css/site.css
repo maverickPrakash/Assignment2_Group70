@@ -31,19 +31,6 @@ body {
     color: white;
 }
 
-main {
-    
-}
-
-.register:hover {
-    background-color: white;
-    border-radius: 3px;
-}
-
-.login:hover {
-    background-color: white;
-    border-radius: 3px;
-}
 
 header {
     overflow: hidden;
@@ -52,48 +39,6 @@ header {
     text-align: center;
     background: #909caf;
     z-index: 999;
-}
-
-.welcome {
-    margin: 0;
-    padding: 0;
-    background: #002b58;
-    height: 80vh;
-    width: 100%;
-    position: relative;
-    margin: 5% 0 0 0;
-    text-align: center;
-}
-
-.welcome-text, .welcome-img {
-    width: 50%;
-}
-main {
-    padding-top: 56px;
-}
-.bid-button {
-    text-decoration: none;
-    padding: 0.8%;
-    border-radius: 3%;
-    border: 1px solid #2a2a23;
-    color: #191919;
-    background: #ffd256;
-    margin: 2% 0 0 -4%;
-    position: absolute;
-}
-
-.welcome-container {
-    display: flex;
-    width: 80%;
-    justify-content: center;
-    align-items: center;
-}
-
-.copy-right {
-    width: 100%;
-    text-align: center;
-    background: #909caf;
-    padding: 2% 0;
 }
 
 .wrap {
@@ -119,6 +64,7 @@ main {
     width: 86px;
 }
 
+
 .login, .register {
     display: flex;
     float: right;
@@ -133,30 +79,6 @@ main {
     margin: 2%;
 }
 
-form {
-    display: flex;
-    margin: 1% 0 0 0;
-}
-
-
-.second-nav {
-    padding: 5px;
-    text-align: center;
-    background: #52678E
-}
-
-    .second-nav ul li {
-         display: inline;
-         margin-left: 5%;
-    }
-
-.elc:hover {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2px;
-}
-
-
 .txtSearch {
     width: 25rem;
     padding: 1.5%;
@@ -168,6 +90,86 @@ form {
     padding: 0 1%;
     background: #ffd256;
 }
+
+.second-nav {
+    padding: 5px;
+    text-align: center;
+    background: #52678E
+}
+
+    .second-nav ul li {
+        display: inline;
+        margin-left: 5%;
+    }
+.register:hover {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.login:hover {
+    background-color: white;
+    border-radius: 3px;
+}
+
+main {
+    padding-top: 56px;
+}
+
+.welcome {
+    margin: 0;
+    padding: 0;
+    background: #002b58;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    margin: 5% 0 0 0;
+    text-align: center;
+}
+
+.welcome-text, .welcome-img {
+    width: 50%;
+}
+
+.bid-button {
+    text-decoration: none;
+    padding: 0.8%;
+    border-radius: 3%;
+    border: 1px solid #2a2a23;
+    color: #191919;
+    background: #ffd256;
+    margin: 2% 0 0 -4%;
+    position: absolute;
+}
+
+.welcome-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy-right {
+    width: 100%;
+    text-align: center;
+    background: #909caf;
+    padding: 2% 0;
+}
+
+form {
+    display: flex;
+    margin: 1% 0 0 0;
+}
+
+
+
+
+.elc:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+
 
 
 .EveryInfo {
@@ -184,15 +186,7 @@ form {
     padding: 4%;
 }
 
-footer {
-    
-    width:100%;
-    padding: 10px 0 0 0;
-    text-align: center;
-    background: #52678E;
-    position: absolute;
-    margin-bottom: 0;
-}
+
 
 /*
 CSS for images in table
@@ -215,7 +209,6 @@ a {
 }
 
 #mainDisplay{
-height:100vh;
 position:relative;
 background:white;
 top:80%;
@@ -375,4 +368,12 @@ input.btn-primary {
     margin-top: 4rem;
 }
 
-
+footer {
+    
+    width:100%;
+    padding: 10px 0 0 0;
+    text-align: center;
+    background: #52678E;
+    position: absolute;
+    margin-bottom: 0;
+}
