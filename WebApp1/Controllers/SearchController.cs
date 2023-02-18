@@ -244,7 +244,7 @@ namespace WebApp1.Controllers
             return _context.Product.Any(e => e.Id == id);
         }
 
-        [HttpPost, ActionName("Bid")]
+        [HttpPost]
         public async Task<IActionResult> IncrementCost(int id)
         {
             var product = await _context.Product.FindAsync(id);
@@ -252,8 +252,10 @@ namespace WebApp1.Controllers
             {
                 return NotFound();
             }
-
-            product.Cost += 1;
+            int price = Convert.ToInt32(product.Cost);
+            price = price + 1;
+            product.Cost = price.ToString();
+            _context.Update(product);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

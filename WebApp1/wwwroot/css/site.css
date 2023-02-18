@@ -16,29 +16,21 @@ html {
         font-size: 16px;
     }
 }
+@media (max-width: 1200px) {
+    .welcome img{
+        width:100%
+    }
+}
 
 html {
+    min-width: 550px;
     position: relative;
-    min-height: 100%;
 }
 
 body {
     color: white;
 }
 
-main {
-    height: 100vh;
-}
-
-.register:hover {
-    background-color: white;
-    border-radius: 3px;
-}
-
-.login:hover {
-    background-color: white;
-    border-radius: 3px;
-}
 
 header {
     overflow: hidden;
@@ -47,48 +39,6 @@ header {
     text-align: center;
     background: #909caf;
     z-index: 999;
-}
-
-.welcome {
-    margin: 0;
-    padding: 0;
-    background: #002b58;
-    height: 80vh;
-    width: 100%;
-    position: absolute;
-    margin: 5% 0 0 0;
-    text-align: center;
-}
-
-.welcome-text, .welcome-img {
-    width: 50%;
-}
-main {
-    padding-top: 56px;
-}
-.bid-button {
-    text-decoration: none;
-    padding: 0.8%;
-    border-radius: 3%;
-    border: 1px solid #2a2a23;
-    color: #191919;
-    background: #ffd256;
-    margin: 2% 0 0 -4%;
-    position: absolute;
-}
-
-.welcome-container {
-    display: flex;
-    width: 80%;
-    justify-content: center;
-    align-items: center;
-}
-
-.copy-right {
-    width: 100%;
-    text-align: center;
-    background: #909caf;
-    padding: 2% 0;
 }
 
 .wrap {
@@ -114,6 +64,7 @@ main {
     width: 86px;
 }
 
+
 .login, .register {
     display: flex;
     float: right;
@@ -128,30 +79,6 @@ main {
     margin: 2%;
 }
 
-form {
-    display: flex;
-    margin: 1% 0 0 0;
-}
-
-
-.second-nav {
-    padding: 5px;
-    text-align: center;
-    background: #52678E
-}
-
-.second-nav ul li {
-       display: inline;
-        margin-left: 5%;
- }
-
-
-.elc:hover {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2px;
-}
-
 .txtSearch {
     width: 25rem;
     padding: 1.5%;
@@ -164,6 +91,86 @@ form {
     background: #ffd256;
 }
 
+.second-nav {
+    padding: 5px;
+    text-align: center;
+    background: #52678E
+}
+
+    .second-nav ul li {
+        display: inline;
+        margin-left: 5%;
+    }
+.register:hover {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.login:hover {
+    background-color: white;
+    border-radius: 3px;
+}
+
+main {
+    padding-top: 56px;
+}
+
+.welcome {
+    margin: 0;
+    padding: 0;
+    background: #002b58;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    margin: 5% 0 0 0;
+    text-align: center;
+}
+
+.welcome-text, .welcome-img {
+    width: 50%;
+}
+
+.bid-button {
+    text-decoration: none;
+    padding: 0.8%;
+    border-radius: 3%;
+    border: 1px solid #2a2a23;
+    color: #191919;
+    background: #ffd256;
+    margin: 2% 0 0 -4%;
+    position: absolute;
+}
+
+.welcome-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy-right {
+    width: 100%;
+    text-align: center;
+    background: #909caf;
+    padding: 2% 0;
+}
+
+form {
+    display: flex;
+    margin: 1% 0 0 0;
+}
+
+
+
+
+.elc:hover {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+
+
 
 .EveryInfo {
     display: flex;
@@ -175,19 +182,11 @@ form {
     }
 
 .info {
-    width: 25%;
+    width: 33%;
     padding: 4%;
 }
 
-footer {
-    top:165%;
-    width:100%;
-    padding: 10px 0 0 0;
-    text-align: center;
-    background: #52678E;
-    position: absolute;
-    margin-bottom: 0;
-}
+
 
 /*
 CSS for images in table
@@ -210,7 +209,6 @@ a {
 }
 
 #mainDisplay{
-height:80vh;
 position:relative;
 background:white;
 top:80%;
@@ -232,8 +230,9 @@ top:80%;
 }
 
     .cateDis img {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        max-width:400px;
+
     }
 
 /* Item page css*/
@@ -281,20 +280,100 @@ top:80%;
     background-color: white;
     border-radius: 4px;
 }
-
-h1{
-    margin-top: 60px;
+/*Create Item Page*/
+.det, .crt, .pt-5, .edt {
     margin-left: 10px;
+    margin-top: 4rem;
+}
+.create_form {
+    display: block;
+    margin-top: 50px
+}
+.create_form label {
+    display: inline-block;
+    width: 170px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.create_form input {
+    display: inline-block;
+    width: 200px;
+    border-radius: 3px;
+}
+.form-group {
     margin-bottom: 20px
 }
 
+input.btn-primary {
+    margin-left: 20rem;
+    width: 9rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold
+}
+.form-btn {
+    margin-left: 1rem;
+}
+.back {
+   padding: 15px;
+}
+/*Item Deatils, Edit, Delete Pages*/
 .details {
-    display: flex;
-    align-items: center;
+    padding-left: 20px;
 }
-.row, .bk_list {
-    padding-left: 30px;
-    font-size: 15px;
+.edit {
+    margin-left: 12rem;
+    width: 6rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center
+}
+.del, .delbtn {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    width: 4rem;
+    background-color: red;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }
 
+.del:hover {
+     background-color: firebrick;
+     color: #fff;
+}
 
+.del {
+    margin-left: 1rem;
+}
+
+.deltitle {
+    margin-left: 10px;
+    margin-top: 4rem;
+}
+
+footer {
+    
+    width:100%;
+    padding: 10px 0 0 0;
+    text-align: center;
+    background: #52678E;
+    position: absolute;
+    margin-bottom: 0;
+}

@@ -38,7 +38,7 @@ It is for creating/adding an item into database
                   </p>
                   <br>
                   <p><span class="first">Cost:    </span>
-                @Html.DisplayFor(modelItem => item.Cost)
+               $@Html.DisplayFor(modelItem => item.Cost)
                 </p>
                 <br>
                 <p><span class="first">Condition: </span> 
@@ -51,10 +51,13 @@ It is for creating/adding an item into database
          
          </div>
          <div class="bid">
-      	     <button class="bidbtn" >Add Bid</button>
+      	    <form method="post" asp-action="IncrementCost" asp-route-id="@item.Id" class="bid">
+                <button type="submit" class="bidbtn">Add Bid</button>
+            </form>    
       	 </div>
         
-    </div>
-       <hr>
+           
+        </div>
+         <hr>
  }
  
