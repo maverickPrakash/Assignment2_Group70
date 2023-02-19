@@ -94,12 +94,13 @@ header {
 .second-nav {
     padding: 5px;
     text-align: center;
+    align-content:center;
     background: #52678E
 }
 
     .second-nav ul li {
         display: inline;
-        margin-left: 5%;
+        margin-right: 6%;
     }
 .register:hover {
     background-color: white;
@@ -159,8 +160,6 @@ form {
     display: flex;
     margin: 1% 0 0 0;
 }
-
-
 
 
 .elc:hover {
@@ -377,3 +376,35 @@ footer {
     position: absolute;
     margin-bottom: 0;
 }
+
+/*Seller Panel*/
+.svg-icon {
+  width:50px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill:  black;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+.second-nav ul li:first-child {
+    float: left;
+    margin-right: 0;
+}
+
+.second-nav ul li:first-child:hover {
+    background-color:white;
+    border-radius: 10px;
+    padding: 2px
+}
+
+
+
