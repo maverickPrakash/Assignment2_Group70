@@ -114,6 +114,18 @@ header {
 
 main {
     padding-top: 56px;
+    min-height:100vh;
+}
+.Sellbtns{
+    float:left;
+    width:60%;
+}
+.Sellbtns ul li {
+    display: inline;
+}
+
+.Sellbtns ul li {
+    padding: 2%;
 }
 
 .welcome {
