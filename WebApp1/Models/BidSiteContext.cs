@@ -28,7 +28,7 @@ namespace WebApp1.Models
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
-                    Id = 1,
+                    ProductId = 1,
                     Name = "Sunflower",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
@@ -36,13 +36,13 @@ namespace WebApp1.Models
                     Asset_condition = "new",
                     Cost = "12.0",
                     CategoryId = 1,
-                    UserId = "seller",
+                    Username = "seller",
                     Image="sunflower.png"
 
                 },
                 new Product
                 {
-                    Id = 2,
+                    ProductId = 2,
                     Name = "Kitkat",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
@@ -50,13 +50,13 @@ namespace WebApp1.Models
                     Asset_condition = "old",
                     Cost = "12.0",
                     CategoryId = 2,
-                    UserId = "seller",
+                    Username = "seller",
                     Image="Kitkat.png"
 
                 },
                 new Product
                 {
-                    Id = 3,
+                    ProductId = 3,
                     Name = "Tulip",
                     Description = "Fresh Tulip",
                     StartBidDate = DateTime.Now,
@@ -64,13 +64,13 @@ namespace WebApp1.Models
                     Asset_condition = "new",
                     Cost = "12.0",
                     CategoryId = 1,
-                    UserId = "seller",
+                    Username = "seller",
                     Image="tulips.png"
 
                 },
                 new Product
                 {
-                    Id = 4,
+                    ProductId = 4,
                     Name = "Tobelerone",
                     Description = "Sweet in taste",
                     StartBidDate = DateTime.Now,
@@ -78,7 +78,7 @@ namespace WebApp1.Models
                     Asset_condition = "old",
                     Cost = "12.0",
                     CategoryId = 2,
-                    UserId = "buyer",
+                    Username = "buyer",
                     Image="Toblerone.png"
 
                 }
