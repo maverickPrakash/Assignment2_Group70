@@ -1,5 +1,7 @@
 ﻿
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebApp1.Models
 {
@@ -12,5 +14,10 @@ namespace WebApp1.Models
         [Key]
         public int Id { get; set; }
 
+    }
+
+    public class HomeViewModel : UserModel
+    {
+        public string login { get; set; }     
     }
 }

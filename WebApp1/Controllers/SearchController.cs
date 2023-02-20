@@ -66,6 +66,7 @@ namespace WebApp1.Controllers
             }
             else
             {
+                ViewBag.Item = item;
                 return View("Index", await _context.Product.ToListAsync());
             }
 
@@ -77,6 +78,42 @@ namespace WebApp1.Controllers
         {
             ViewBag.Item = item;
             ViewBag.Order = order;
+
+            if (item == "" || item == null) {
+                switch (order)
+                {
+                    case "DESC":
+                        switch (field)
+                        {
+                            case "Name":
+                                return View("Index", await _context.Product.OrderBy(e => e.Name).ToListAsync());
+
+                            case "Cost":
+                                return View("Index", await _context.Product.OrderBy(e => e.Cost).ToListAsync());
+
+                            case "Category":
+                                return View("Index", await _context.Product.OrderBy(e => e.Category).ToListAsync());
+
+                            default:
+                                return View("Index", await _context.Product.ToListAsync());
+                        }
+                    case "ASC":
+                        switch (field)
+                        {
+                            case "Name":
+                                return View("Index", await _context.Product.OrderBy(e => e.Name).ToListAsync());
+
+                            case "Cost":
+                                return View("Index", await _context.Product.OrderByDescending(e => e.Cost).ToListAsync());
+
+                            default:
+                                return View("Index", await _context.Product.ToListAsync());
+                        }
+
+                }
+                
+            }
+
             switch (order)
             {
                 case "DESC":
@@ -90,9 +127,8 @@ namespace WebApp1.Controllers
 
                         case "Category":
                             return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Category).ToListAsync());
-
                         default:
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Product.ToListAsync());
 
                     }
                 case "ASC":
@@ -106,28 +142,13 @@ namespace WebApp1.Controllers
 
                         case "Category":
                             return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderByDescending(e => e.Category).ToListAsync());
-
                         default:
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderByDescending(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Product.ToListAsync());
 
                     }
-
                 default:
-                    switch (field)
-                    {
-                        case "Name":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
-
-                        case "Cost":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Cost).ToListAsync());
-
-                        case "Category":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Category).ToListAsync());
-
-                        default:
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
-
-                    }
+                    return View("Index", await _context.Product.ToListAsync());
+            
             }
 
 

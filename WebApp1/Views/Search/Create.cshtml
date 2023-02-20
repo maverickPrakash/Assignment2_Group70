@@ -4,48 +4,40 @@
     ViewData["Title"] = "Create";
 }
 
-
 <h2 class="crt">Create Product</h2>
 <hr />
 <div class="create">
     <div class="col-md-12">
         <form asp-action="Create" class="create_form">
-            <fieldset>
-                <legend>Product</legend>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
            
             <div class="form-group">
-                <label class="control-label">ID</label>
-                <input class="input-control" placeholder="SELLER ID"/>            
-            </div>
-
-            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="input-control" placeholder="PRODUCT NAME"/>
+                <input asp-for="Name" class="input-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="input-control" placeholder="PRODUCT DESCRIPTION" ></textarea>
+                <input asp-for="Description" class="input-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             
             <div class="form-group">
                 <label asp-for="Cost" class="control-label"></label>
-                <input asp-for="Cost" class="input-control" placeholder="PRODUCT COST" />
+                <input asp-for="Cost" class="input-control" />
                 <span asp-validation-for="Cost" class="text-danger"></span>
             </div>
            
             <div class="form-group">
                 <label asp-for="Asset_condition" class="control-label"></label>
-                <input asp-for="Asset_condition" class="input-control" placeholder="PRODUCT CONDITION" />
+                <input asp-for="Asset_condition" class="input-control" />
                 <span asp-validation-for="Asset_condition" class="text-danger"></span>
             </div>
             
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="input-control" placeholder="PRODUCT CATEGORY" />
+                <input asp-for="Category" class="input-control" />
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             
@@ -57,7 +49,6 @@
             <div class="form-btn">
                 <input type="submit" value="Create" class="btn-primary" />
             </div>
-            </fieldset>
         </form>
     </div>
 </div>

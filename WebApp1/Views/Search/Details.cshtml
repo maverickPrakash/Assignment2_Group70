@@ -46,9 +46,10 @@
             @Html.DisplayFor(model => model.Image)
         </dd>
     </dl>
-    <hr>
 </div>
-<div>
+<hr />
+<div class="del-edit">
+    <a class="del" asp-action="Delete" asp-route-id="@Model?.Id">Delete</a>
     <!-- This for enabling edit method for the items -->
    <a class="edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
 </div>

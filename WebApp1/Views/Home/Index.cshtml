@@ -1,11 +1,14 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
 
 <div class="welcome container  pt-5">
     <div class="welcome-container">
         <div class="welcome-text">
-            <h1>Welcome to LocoTrade</h1>
+            <h1>Welcome to LocoTrade @ViewData["User"]</h1>
             <h3>Best Place for biding item</h3>
             <a asp-fragment="mainDisplay" class="bid-button">Start Bidding</a>
         </div>
@@ -15,15 +18,7 @@
 
     </div>
 </div>
-<div id="mainDisplay">
-    
-        
-        
-        
-        
-        
-        
-        
+<div id="mainDisplay">    
             <div class="cateDis"><a asp-controller="Search">
                 <img src="~/Images/home.jpeg" />
                <h4>Home</h4>
