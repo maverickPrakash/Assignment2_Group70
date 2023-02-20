@@ -16,9 +16,9 @@ namespace WebApp1.Models
         public string? Asset_condition { get; set; }
         public DateTime StartBidDate { get; set; }
         public DateTime ExpiryBidDate { get; set; }
-        [Range(1,6, ErrorMessage="Select Correct")]
+        [Range(1,6, ErrorMessage="Select Correct Category")]
         public int CategoryId { get; set; }
-        public String? Category { get; set; }
+        public Category? Category { get; set; }
         public int UserId { get; set; }
         public User? User { get; set; }
         public string? Image { get; set; }

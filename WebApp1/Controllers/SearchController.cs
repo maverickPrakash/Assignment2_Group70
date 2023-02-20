@@ -62,7 +62,7 @@ namespace WebApp1.Controllers
             if (item != null)
             {
                 ViewBag.Item = item;
-                return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
+                return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
             }
             else
             {
@@ -120,13 +120,13 @@ namespace WebApp1.Controllers
                     switch (field)
                     {
                         case "Name":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
 
                         case "Cost":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Cost).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Cost).ToListAsync());
 
                         case "Category":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderBy(e => e.Category).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Category).ToListAsync());
                         default:
                             return View("Index", await _context.Product.ToListAsync());
 
@@ -135,13 +135,13 @@ namespace WebApp1.Controllers
                     switch (field)
                     {
                         case "Name":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderByDescending(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Name).ToListAsync());
 
                         case "Cost":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderByDescending(e => e.Cost).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Cost).ToListAsync());
 
                         case "Category":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.Contains(item)).OrderByDescending(e => e.Category).ToListAsync());
+                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Category).ToListAsync());
                         default:
                             return View("Index", await _context.Product.ToListAsync());
 
