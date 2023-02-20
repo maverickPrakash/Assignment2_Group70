@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using WebApp1.Data;
 using WebApp1.Email;
+using WebApp1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.AddControllersWithViews();
 //Email Setup
 
 builder.Services.AddTransient<IEmailSender, SendGridEmail>();
+
+builder.Services.AddDbContext<BidSiteContext>(options =>
+options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
