@@ -4,16 +4,7 @@ namespace WebApp1.Models
 {
     public class Product
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Cost { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public string Asset_condition { get; set; }
-        public string Category { get; set; }
-        public string Image { get; set; }
-        public Product() { }
+        
         
         public int ProductId { get; set; }
         [Required(ErrorMessage="Please enter a valid Product Name")]

@@ -17,9 +17,10 @@ namespace WebApp1.Models
                 new Category { CategoryId=2, CategoryName="Electronic"},
                 new Category { CategoryId=3, CategoryName="Fashion"},
                 new Category { CategoryId=4, CategoryName="Game"},
-                new Category { CategoryId=5, CategoryName="Home"},
-                new Category { CategoryId=6, CategoryName="Home"}
+                new Category { CategoryId=5, CategoryName="Books"},
+                new Category { CategoryId=6, CategoryName="Computer"}
                 );
+            
         }
     }
 }
