@@ -343,6 +343,25 @@ fieldset>legend {
     margin-bottom: 20px
 }
 
+.seller_id {
+    float: right;
+    padding: .5rem;
+    
+}
+.input-id {
+    display: inline-block;
+    width: 10rem;
+    border-radius: 3px;
+}
+.id-label {
+    display: inline-block;
+    width: 170px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+}
 input.btn-primary {
     margin-left: 20rem;
     width: 9rem;
