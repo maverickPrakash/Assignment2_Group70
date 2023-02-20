@@ -21,61 +21,65 @@ namespace WebApp1.Models
                 new Category { CategoryId = 5, CategoryName = "Books" },
                 new Category { CategoryId = 6, CategoryName = "Computer" }
                 );
+            modelBuilder.Entity<User>().HasData(
+                new User { Username="buyer",Password="buyer",Email="buer@gmail.com",UserType="buyer"},
+                new User { Username="seller",Password="seller",Email="seller@gmail.com",UserType="seller"}
+                );
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
                     Id = 1,
-                    Name = "Prakash",
+                    Name = "Sunflower",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
-                    Asset_condition = "gg",
+                    Asset_condition = "new",
                     Cost = "12.0",
                     CategoryId = 1,
-                    UserId = 1,
-                    Image="prakash.png"
+                    UserId = "seller",
+                    Image="sunflower.png"
 
                 },
                 new Product
                 {
                     Id = 2,
-                    Name = "Prakash",
+                    Name = "Kitkat",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
-                    Asset_condition = "gg",
+                    Asset_condition = "old",
                     Cost = "12.0",
-                    CategoryId = 1,
-                    UserId = 1,
-                    Image="prakash.png"
+                    CategoryId = 2,
+                    UserId = "seller",
+                    Image="Kitkat.png"
 
                 },
                 new Product
                 {
                     Id = 3,
-                    Name = "Prakash",
-                    Description = "Prakash has created product stuff",
+                    Name = "Tulip",
+                    Description = "Fresh Tulip",
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
-                    Asset_condition = "gg",
+                    Asset_condition = "new",
                     Cost = "12.0",
                     CategoryId = 1,
-                    UserId = 1,
-                    Image="prakash.png"
+                    UserId = "seller",
+                    Image="tulips.png"
 
                 },
                 new Product
                 {
                     Id = 4,
-                    Name = "Prakash",
-                    Description = "Prakash has created product stuff",
+                    Name = "Tobelerone",
+                    Description = "Sweet in taste",
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
-                    Asset_condition = "gg",
+                    Asset_condition = "old",
                     Cost = "12.0",
-                    CategoryId = 1,
-                    UserId = 2,
-                    Image="prakash.png"
+                    CategoryId = 2,
+                    UserId = "buyer",
+                    Image="Toblerone.png"
 
                 }
                 ); ;

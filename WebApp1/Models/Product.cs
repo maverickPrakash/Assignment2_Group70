@@ -19,7 +19,7 @@ namespace WebApp1.Models
         [Range(1,6, ErrorMessage="Select Correct Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-        public int UserId { get; set; }
+        public String? UserId { get; set; }
         public User? User { get; set; }
         public string? Image { get; set; }
        
