@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: #002b58;
+    background-color: #002b58 !important;
+    color: white !important;
 }
 
 html {
@@ -16,92 +17,20 @@ html {
         font-size: 16px;
     }
 }
-@media (max-width: 1200px) {
-    .welcome img{
-        width:100%
-    }
-}
 
 html {
-    min-width: 550px;
     position: relative;
+    min-height: 100%;
 }
 
 body {
     color: white;
 }
 
-
-header {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    background: #909caf;
-    z-index: 999;
+main {
+    height: 100vh;
 }
 
-.wrap {
-    height: 56px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    padding: 0, 10%;
-    height: 40px
-}
-
-.web-logo {
-    display: flex;
-    float: left;
-    padding-left: .1rem;
-    padding-top: .5rem;
-    width: 86px;
-}
-
-
-.login, .register {
-    display: flex;
-    float: right;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.logo {
-    text-decoration: none;
-    width: 10rem;
-    margin: 2%;
-}
-
-.txtSearch {
-    width: 25rem;
-    padding: 1.5%;
-    margin: 0.2%;
-}
-
-.searchButton {
-    margin-left: 10px;
-    padding: 0 1%;
-    background: #ffd256;
-}
-
-.second-nav {
-    padding: 5px;
-    text-align: center;
-    align-content:center;
-    background: #52678E
-}
-
-    .second-nav ul li {
-        display: inline;
-        margin-right: 6%;
-    }
 .register:hover {
     background-color: white;
     border-radius: 3px;
@@ -112,20 +41,13 @@ header {
     border-radius: 3px;
 }
 
-main {
-    padding-top: 56px;
-    min-height:100vh;
-}
-.Sellbtns{
-    float:left;
-    width:60%;
-}
-.Sellbtns ul li {
-    display: inline;
-}
-
-.Sellbtns ul li {
-    padding: 2%;
+header {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    background: #909caf;
+    z-index: 999;
 }
 
 .welcome {
@@ -134,7 +56,7 @@ main {
     background: #002b58;
     height: 80vh;
     width: 100%;
-    position: relative;
+    position: absolute;
     margin: 5% 0 0 0;
     text-align: center;
 }
@@ -142,7 +64,9 @@ main {
 .welcome-text, .welcome-img {
     width: 50%;
 }
-
+main {
+    padding-top: 56px;
+}
 .bid-button {
     text-decoration: none;
     padding: 0.8%;
@@ -168,11 +92,59 @@ main {
     padding: 2% 0;
 }
 
+.wrap {
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0, 10%;
+    height: 40px
+}
+
+.web-logo {
+    display: flex;
+    float: left;
+    padding-left: .1rem;
+    padding-top: .5rem;
+    width: 86px;
+}
+
+.login, .register {
+    display: flex;
+    float: right;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo {
+    text-decoration: none;
+    width: 10rem;
+    margin: 2%;
+}
+
 form {
     display: flex;
     margin: 1% 0 0 0;
 }
 
+
+.second-nav {
+    padding: 5px;
+    text-align: center;
+    background: #52678E
+}
+
+    .second-nav ul li {
+         display: inline;
+         margin-left: 5%;
+    }
 
 .elc:hover {
     background-color: white;
@@ -181,6 +153,17 @@ form {
 }
 
 
+.txtSearch {
+    width: 25rem;
+    padding: 1.5%;
+    margin: 0.2%;
+}
+
+.searchButton {
+    margin-left: 10px;
+    padding: 0 1%;
+    background: #ffd256;
+}
 
 
 .EveryInfo {
@@ -193,11 +176,19 @@ form {
     }
 
 .info {
-    width: 33%;
+    width: 25%;
     padding: 4%;
 }
 
-
+footer {
+    top:165%;
+    width:100%;
+    padding: 10px 0 0 0;
+    text-align: center;
+    background: #52678E;
+    position: absolute;
+    margin-bottom: 0;
+}
 
 /*
 CSS for images in table
@@ -220,6 +211,7 @@ a {
 }
 
 #mainDisplay{
+height:80vh;
 position:relative;
 background:white;
 top:80%;
@@ -241,12 +233,12 @@ top:80%;
 }
 
     .cateDis img {
-        width: 100%;
-        max-width:400px;
-
+        width: 300px;
+        height: 300px;
     }
 
 /* Item page css*/
+/*
 .container {
     display: flex;
     align-items: center;
@@ -291,31 +283,15 @@ top:80%;
     background-color: white;
     border-radius: 4px;
 }
+    */
 /*Create Item Page*/
 .det, .crt, .pt-5, .edt {
     margin-left: 10px;
     margin-top: 4rem;
 }
-
-.create {
-    background-color:aliceblue;
-}
-
 .create_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-}
-fieldset {
-    width: auto;
-}
-fieldset>legend {
-  text-align: left;
-  font-size: 30px;
-  color: black;
-  font-weight: bold;
-  margin-top: .5rem;
+    display: block;
+    margin-top: 50px
 }
 .create_form label {
     display: inline-block;
@@ -323,45 +299,18 @@ fieldset>legend {
     text-align: right;
     margin-right: 10px;
     font-weight: bold;
-    font-size: 15px;
-    color: black;
+    font-size: 1rem;
 }
 
 .create_form input {
     display: inline-block;
-    width: 20rem;
-    border-radius: 3px;
-}
-.create_form textarea {
-    display: inline-block;
-    width: 20rem;
+    width: 200px;
     border-radius: 3px;
 }
 .form-group {
-    display: flex;
-    padding: .5rem;
     margin-bottom: 20px
 }
 
-.seller_id {
-    float: right;
-    padding: .5rem;
-    
-}
-.input-id {
-    display: inline-block;
-    width: 10rem;
-    border-radius: 3px;
-}
-.id-label {
-    display: inline-block;
-    width: 170px;
-    text-align: right;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 15px;
-    color: black;
-}
 input.btn-primary {
     margin-left: 20rem;
     width: 9rem;
@@ -375,13 +324,9 @@ input.btn-primary {
 }
 .form-btn {
     margin-left: 1rem;
-    margin-bottom: 1rem;
 }
 .back {
    padding: 15px;
-}
-.add {
-    padding: 1rem;
 }
 /*Item Deatils, Edit, Delete Pages*/
 .details {
@@ -427,44 +372,45 @@ input.btn-primary {
     margin-top: 4rem;
 }
 
-footer {
-    
-    width:100%;
-    padding: 10px 0 0 0;
-    text-align: center;
-    background: #52678E;
-    position: absolute;
-    margin-bottom: 0;
+
+/*
+CSS for images in table
+*/
+
+.item-image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
 }
 
-/*Seller Panel*/
-.svg-icon {
-  width:50px;
-  height: 30px;
-  padding-top: 5px;
+    .item-image:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+a {
+    color: white;
 }
 
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
-  fill:  black;
+.item-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 300px;
+    padding: 2px 2px 2px 2px;
 }
 
-.svg-icon circle {
-  stroke: #4691f6;
-  stroke-width: 1;
-}
+    .item-container .container {
+        padding: 0;
+        overflow: hidden;
+    }
 
-.second-nav ul li:first-child {
-    float: left;
-    margin-right: 0;
-}
-
-.second-nav ul li:first-child:hover {
-    background-color:white;
-    border-radius: 10px;
-    padding: 2px
+.item-image-container {
+    background: white;
+    height: 170px;
+    overflow: hidden;
 }
 
 
-
+.item-link {
+    width: 100%;
+}

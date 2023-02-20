@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\HomeController1.cs" />
     <Compile Remove="Models\Search.cs" />
   </ItemGroup>
 

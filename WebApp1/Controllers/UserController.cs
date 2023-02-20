@@ -9,6 +9,7 @@ namespace WebApp1.Controllers
     public class UserController : Controller
     {
         private readonly ApplicationDbContext context;
+        private object _context;
 
         public UserController(ApplicationDbContext context)
         {
@@ -21,16 +22,22 @@ namespace WebApp1.Controllers
             return View();
         }
         [HttpPost("Login")]
-        public IActionResult Login(Login loginmodel)
+        public async Task<IActionResult> Login(Login loginmodel)
         {
 
             //if(!ModelState.IsValid) return View(loginmodel);
 
-            var user = context.Users.FirstOrDefault(row => row.Username.Equals(loginmodel.Username) && row.Password.Equals(loginmodel.Password));
+            var user = context.Users.FirstOrDefault(row => row.Username.Equals(loginmodel.Username) && row.Password.Equals(loginmodel.Password));            
+            if (user == null) {
+                ViewData["Account"] = "Invalid Username or Password";
+                return View(loginmodel) ;
+            }
 
-            if (user == null) return View(loginmodel);
 
-           return RedirectToAction("Index", "Home");
+
+            ViewData["User"] = user;
+            return RedirectToAction("Index", "Home");
+            
            
         }
         [HttpGet("Register")]
@@ -38,6 +45,7 @@ namespace WebApp1.Controllers
         {
             return View();
         }
+
         [HttpPost("Register")]
         public IActionResult Register(Registration registermodel)
         {
@@ -57,6 +65,11 @@ namespace WebApp1.Controllers
             //var user = context.Users.FirstOrDefault(row => row.Username.Equals(loginmodel.Username) && row.Password.Equals(loginmodel.Password));
 
             return View("Login");
+        }
+
+        [HttpPost("Verify")]
+        public IActionResult Verify() {
+            return View();
         }
     }
 }
