@@ -9,7 +9,7 @@ namespace WebApp1.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
-        public object Category { get; internal set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace WebApp1.Models
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
-                    ProductId = 1,
+                    Id = 1,
                     Name = "Sunflower",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
@@ -42,7 +42,7 @@ namespace WebApp1.Models
                 },
                 new Product
                 {
-                    ProductId = 2,
+                    Id = 2,
                     Name = "Kitkat",
                     Description = "Prakash has created product stuff",
                     StartBidDate = DateTime.Now,
@@ -56,7 +56,7 @@ namespace WebApp1.Models
                 },
                 new Product
                 {
-                    ProductId = 3,
+                    Id = 3,
                     Name = "Tulip",
                     Description = "Fresh Tulip",
                     StartBidDate = DateTime.Now,
@@ -70,7 +70,7 @@ namespace WebApp1.Models
                 },
                 new Product
                 {
-                    ProductId = 4,
+                    Id = 4,
                     Name = "Tobelerone",
                     Description = "Sweet in taste",
                     StartBidDate = DateTime.Now,

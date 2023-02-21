@@ -11,6 +11,6 @@ namespace WebApp1.Data
         {
         }
         public DbSet<WebApp1.Models.Product> Product { get; set; }
-        public DbSet<WebApp1.Models.UserModel> Users { get; set; }
+        
     }
 }

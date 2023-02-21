@@ -5,7 +5,7 @@ namespace WebApp1.Models
     public class Product
     {
         
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage="Please enter a valid Product Name")]
         public string? Name { get; set; }
         [Required(ErrorMessage = "Please enter a valid Product Description")]
