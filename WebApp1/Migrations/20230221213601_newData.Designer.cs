@@ -12,8 +12,8 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230221030138_name")]
-    partial class name
+    [Migration("20230221213601_newData")]
+    partial class newData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,10 +130,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(201),
-                            Image = "sunflower.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6595),
+                            Image = "sunflower.jgp",
                             Name = "Sunflower",
-                            StartBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(159),
+                            StartBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6554),
                             Username = "seller"
                         },
                         new
@@ -143,10 +143,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(207),
-                            Image = "Kitkat.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6633),
+                            Image = "Kitkat.jpg",
                             Name = "Kitkat",
-                            StartBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(205),
+                            StartBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6631),
                             Username = "seller"
                         },
                         new
@@ -156,10 +156,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Fresh Tulip",
-                            ExpiryBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(212),
-                            Image = "tulips.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6637),
+                            Image = "tulips.jpg",
                             Name = "Tulip",
-                            StartBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(210),
+                            StartBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6636),
                             Username = "seller"
                         },
                         new
@@ -169,10 +169,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Sweet in taste",
-                            ExpiryBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(216),
-                            Image = "Toblerone.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6639),
+                            Image = "Toblerone.jpg",
                             Name = "Tobelerone",
-                            StartBidDate = new DateTime(2023, 2, 20, 22, 1, 38, 354, DateTimeKind.Local).AddTicks(214),
+                            StartBidDate = new DateTime(2023, 2, 21, 16, 36, 1, 119, DateTimeKind.Local).AddTicks(6638),
                             Username = "buyer"
                         });
                 });

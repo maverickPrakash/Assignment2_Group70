@@ -22,6 +22,8 @@ namespace WebApp1.Models
         public String? Username { get; set; }
         public User? User { get; set; }
         public string? Image { get; set; }
+
+        public string Slug => Name.Replace(" ", "-");
        
     }
 }

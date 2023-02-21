@@ -6,8 +6,8 @@
 
 <h1 class="det">Details</h1>
 
-<div class="details">
-    <hr />
+<div class="details" style="display:flex;">
+    <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width:50vw; height:50vh" />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -48,11 +48,7 @@
     </dl>
 </div>
 <hr />
-<div class="del-edit">
-    <a class="del" asp-action="Delete" asp-route-id="@Model?.Id">Delete</a>
-    <!-- This for enabling edit method for the items -->
-   <a class="edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-</div>
+
 <div class="back">
     <a asp-action="Index">Back to List</a>
 </div>
