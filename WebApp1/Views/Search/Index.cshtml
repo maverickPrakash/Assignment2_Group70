@@ -30,13 +30,12 @@
 
 @foreach (var item in Model)
 {
-
+<a asp-action="Details" asp-controller="Search" asp-route-id="@item.Id">
 <div class="col-md-10">
     <div class="row p-2 bg-white border rounded">
         <div class="col-md-3 mt-1 product-image">
-            @{
-                string url = "../images/" + item.Image + ".jpg";
-            }
+            
+            <img src="~/Images/@item.Image" style="width:100%; height:100%">
         </div>
         <div class="col-md-6 mt-1">
             <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
@@ -47,10 +46,9 @@
                 <h4 class="mr-1"> <span class="text-price"> $@Html.DisplayFor(modelItem => item.Cost)</span></h4>
             </div>
            
-            <div class="d-flex flex-column mt-4">
-                <button class="btn btn-primary btn-sm" asp-action="IncrementCost">Add Bid</button>
-            </div>
+            
         </div>
     </div>
 </div>
+</a>
 }
