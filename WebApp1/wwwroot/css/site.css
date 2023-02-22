@@ -172,7 +172,7 @@ main {
     padding: 2% 0;
 }
 
-#search{
+form {
     display: flex;
     margin: 1% 0 0 0;
 }
@@ -250,54 +250,6 @@ a {
         max-width: 400px;
     }
 
-/* Item page css*/
-.container {
-    display: flex;
-    align-items: center;
-}
-
-.pic {
-    width: 200px;
-    height: auto;
-    float: left;
-    margin-right: 20px;
-}
-
-.cols {
-    overflow: hidden;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: justify;
-}
-
-    .cols > p {
-        margin-bottom: 5px;
-    }
-
-.first {
-    font-weight: 100;
-    padding-right: 20px;
-}
-
-.bid {
-    margin-left: auto;
-}
-
-.bidbtn {
-    background-color: #4CAF50;
-    color: black;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold
-}
-
-    .bidbtn:hover {
-        background-color: white;
-        border-radius: 4px;
-    }
 /*Create Item Page*/
 .det, .crt, .pt-5, .edt {
     margin-left: 10px;
@@ -456,22 +408,6 @@ footer {
 }
 
 /*Seller Panel*/
-.svg-icon {
-    width: 50px;
-    height: 30px;
-    padding-top: 5px;
-}
-
-    .svg-icon path,
-    .svg-icon polygon,
-    .svg-icon rect {
-        fill: black;
-    }
-
-    .svg-icon circle {
-        stroke: #4691f6;
-        stroke-width: 1;
-    }
 
 .second-nav ul li:first-child {
     float: left;
@@ -483,3 +419,121 @@ footer {
         border-radius: 10px;
         padding: 2px
     }
+
+/*Seller Items*/
+.item-table {
+    font-family: arial, sans-serif;
+    margin: 10px;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+    color: black
+}
+tr {
+    border: 0.5px solid black;
+    border-block-color: inherit;
+}
+
+.seller-item {
+    background-color:ghostwhite;
+    padding: 20px;
+}
+.item-table td:first-child {
+    font-weight: bold;
+}
+
+.seller-head{
+    margin: 10px;
+}
+
+/*Search*/
+.product-image {
+    height: 100px;
+    vertical-align: middle;
+    border-style: none;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.text-right {
+    margin-top: 0.25rem;
+    color: black;
+}
+
+.p-2 {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 100px;
+    margin-left: 250px;
+}
+
+.item-row {
+    justify-content: center;
+}
+
+.text-price {
+    color: black;
+    font-size: 2rem;
+}
+
+
+.mt-1 {
+    color: black;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: left;
+    color: black;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.border-left {
+    border-left: 0.5px solid black;
+}
+
+.product-image {
+    width: 100%
+}
+
+
+.spec-1 {
+    color: #938787;
+    font-size: 15px
+}
+
+h5 {
+    font-weight: 400
+}
+
+.para {
+    font-size: 16px
+}
+
+.text-right {
+    margin-top: 0;
+    color: black;
+    width: 7%;
+    float: right;
+}
+.pt {
+    width: 11%;
+}
+
+/*Details*/
+.detail-table {
+    font-family: arial, sans-serif;
+    margin-left: 10rem;
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 60%;
+    background-color: ghostwhite;
+}
+
