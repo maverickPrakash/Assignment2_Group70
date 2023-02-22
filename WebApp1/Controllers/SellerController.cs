@@ -27,20 +27,5 @@ namespace WebApp1.Controllers
             ViewBag.Categories= _BidSiteContext.Categories.ToList();
             return View(product);
         }
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var item = _BidSiteContext.Products.Find(id);
-            return View(item);
-        }
-        [HttpPost]
-        public IActionResult Delete(Product p)
-        {
-            
-            _BidSiteContext.Products.Remove(p);
-            _BidSiteContext.SaveChanges();
-            
-            return RedirectToAction(nameof(Index));
-        }
     }
 }
