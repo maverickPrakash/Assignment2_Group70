@@ -20,6 +20,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IEmailSender, SendGridEmail>();
 
+builder.Services.AddRouting(options =>
+{
+    options.AppendTrailingSlash = true;
+    options.LowercaseUrls =true;
+});
 builder.Services.AddDbContext<BidSiteContext>(options =>
 options.UseSqlServer(connectionString));
 
