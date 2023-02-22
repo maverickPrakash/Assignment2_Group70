@@ -527,4 +527,13 @@ h5 {
     width: 11%;
 }
 
+/*Details*/
+.detail-table {
+    font-family: arial, sans-serif;
+    margin-left: 10rem;
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 60%;
+    background-color: ghostwhite;
+}
 
