@@ -128,10 +128,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8000),
-                            Image = "sunflower.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9547),
+                            Image = "sunflower.jgp",
                             Name = "Sunflower",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(7991),
+                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9501),
                             Username = "seller"
                         },
                         new
@@ -141,10 +141,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8005),
-                            Image = "Kitkat.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9553),
+                            Image = "Kitkat.jpg",
                             Name = "Kitkat",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8004),
+                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9551),
                             Username = "seller"
                         },
                         new
@@ -154,10 +154,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Fresh Tulip",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8007),
-                            Image = "tulips.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9558),
+                            Image = "tulips.jpg",
                             Name = "Tulip",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8007),
+                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9556),
                             Username = "seller"
                         },
                         new
@@ -167,10 +167,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Sweet in taste",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8010),
-                            Image = "Toblerone.png",
+                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9671),
+                            Image = "Toblerone.jpg",
                             Name = "Tobelerone",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8009),
+                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9668),
                             Username = "buyer"
                         });
                 });
