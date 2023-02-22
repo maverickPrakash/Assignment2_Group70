@@ -29,7 +29,7 @@ namespace WebApp1.Email
             var client = new SendGridClient(sendGridApiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("ng.hakhang309@gmail.com", "Loco Trade"),
+                From = new EmailAddress("altalaie@gmail.com", "Loco Trade"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
