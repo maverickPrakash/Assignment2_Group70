@@ -10,7 +10,7 @@
 <div class="create">
     <div class="col-md-12">
        
-        <form asp-action="AddProduct" class="create_form">
+        <form asp-action="AddProduct" asp-controller="Seller" enctype="multipart/form-data" method="post" class="create_form">
             <fieldset>
                 <legend>Product</legend>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -73,7 +73,7 @@
             
             <div class="form-group">
                 <label  class="control-label">Image</label>
-                <input  class="input-control" type="file" />
+                <input name="ImageFile" required  class="input-control" type="file" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-btn">

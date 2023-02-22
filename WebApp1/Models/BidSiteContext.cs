@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 namespace WebApp1.Models
 {
     public class BidSiteContext : DbContext
