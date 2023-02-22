@@ -14,7 +14,6 @@ namespace WebApp1.Controllers
         }
 
         
-        
         public IActionResult Index()
         {
             

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp1.Models;
 
@@ -11,9 +12,10 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    partial class BidSiteContextModelSnapshot : ModelSnapshot
+    [Migration("20230221015625_any")]
+    partial class any
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,10 +130,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8000),
+                            ExpiryBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4762),
                             Image = "sunflower.png",
                             Name = "Sunflower",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(7991),
+                            StartBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4724),
                             Username = "seller"
                         },
                         new
@@ -141,10 +143,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8005),
+                            ExpiryBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4766),
                             Image = "Kitkat.png",
                             Name = "Kitkat",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8004),
+                            StartBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4765),
                             Username = "seller"
                         },
                         new
@@ -154,10 +156,10 @@ namespace WebApp1.Migrations
                             CategoryId = 1,
                             Cost = "12.0",
                             Description = "Fresh Tulip",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8007),
+                            ExpiryBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4769),
                             Image = "tulips.png",
                             Name = "Tulip",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8007),
+                            StartBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4768),
                             Username = "seller"
                         },
                         new
@@ -167,10 +169,10 @@ namespace WebApp1.Migrations
                             CategoryId = 2,
                             Cost = "12.0",
                             Description = "Sweet in taste",
-                            ExpiryBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8010),
+                            ExpiryBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4771),
                             Image = "Toblerone.png",
                             Name = "Tobelerone",
-                            StartBidDate = new DateTime(2023, 2, 22, 9, 0, 0, 736, DateTimeKind.Local).AddTicks(8009),
+                            StartBidDate = new DateTime(2023, 2, 20, 20, 56, 25, 291, DateTimeKind.Local).AddTicks(4770),
                             Username = "buyer"
                         });
                 });

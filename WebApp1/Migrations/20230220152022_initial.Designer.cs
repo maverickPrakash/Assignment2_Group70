@@ -12,8 +12,8 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230221224339_name")]
-    partial class name
+    [Migration("20230220152022_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,9 @@ namespace WebApp1.Migrations
                     b.Property<string>("Asset_condition")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -108,73 +111,18 @@ namespace WebApp1.Migrations
                     b.Property<DateTime>("StartBidDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Username1")
+                    b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("Username1");
+                    b.HasIndex("Username");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Asset_condition = "new",
-                            CategoryId = 1,
-                            Cost = "12.0",
-                            Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9547),
-                            Image = "sunflower.jgp",
-                            Name = "Sunflower",
-                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9501),
-                            Username = "seller"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Asset_condition = "old",
-                            CategoryId = 2,
-                            Cost = "12.0",
-                            Description = "Prakash has created product stuff",
-                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9553),
-                            Image = "Kitkat.jpg",
-                            Name = "Kitkat",
-                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9551),
-                            Username = "seller"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Asset_condition = "new",
-                            CategoryId = 1,
-                            Cost = "12.0",
-                            Description = "Fresh Tulip",
-                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9558),
-                            Image = "tulips.jpg",
-                            Name = "Tulip",
-                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9556),
-                            Username = "seller"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Asset_condition = "old",
-                            CategoryId = 2,
-                            Cost = "12.0",
-                            Description = "Sweet in taste",
-                            ExpiryBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9671),
-                            Image = "Toblerone.jpg",
-                            Name = "Tobelerone",
-                            StartBidDate = new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9668),
-                            Username = "buyer"
-                        });
                 });
 
             modelBuilder.Entity("WebApp1.Models.User", b =>
@@ -196,37 +144,15 @@ namespace WebApp1.Migrations
                     b.HasKey("Username");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Username = "buyer",
-                            Email = "buer@gmail.com",
-                            Password = "buyer",
-                            UserType = "buyer"
-                        },
-                        new
-                        {
-                            Username = "seller",
-                            Email = "seller@gmail.com",
-                            Password = "seller",
-                            UserType = "seller"
-                        });
                 });
 
             modelBuilder.Entity("WebApp1.Models.Product", b =>
                 {
-                    b.HasOne("WebApp1.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WebApp1.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("Username1");
-
-                    b.Navigation("Category");
+                        .HasForeignKey("Username")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

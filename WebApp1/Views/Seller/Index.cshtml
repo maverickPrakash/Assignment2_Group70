@@ -5,47 +5,18 @@
 @{
     Layout = "_sellerPanelTemplate";
 }
-<h2 class="seller-head">List of Items</h2>
+<h2>List of Items</h2>
 <hr />
-<div class="seller-item">
 @foreach(Product prop in Model){
-<table class="item-table">
-    <tr>
-        <td>Item Name</td>
-        <td>@prop.Name</td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>@prop.Description</td>
-    </tr>
-    <tr>
-        <td>Asset Condition</td>
-        <td>@prop.Asset_condition</td>
-    </tr>
-    <tr>
-        <td>Category</td>
-        <td>@prop.Category.CategoryName</td>
-    </tr>
-    <tr>
-        <td>Start Date</td>
-        <td>@prop.StartBidDate</td>
-    </tr>
-    <tr>
-        <td>End Date</td>
-        <td>@prop.ExpiryBidDate</td>
-    </tr>
-    <tr>
-        <td>Cost</td>
-        <td>@prop.Cost</td>
-    </tr>
-    <tr>
-        <td>Image</td>
-        <td>@prop.Image</td>
-    </tr>
-    <tr>
-        <td><button  type="button" class="btn btn-secondary">Edit</button>    <a asp-controller="Seller" asp-action="Delete" asp-route-id="@prop.Id" asp-route-slug="@prop.Slug" class="btn btn-danger">Delete</a></td>
-    </tr>
-  </table>
-  <br/><br/>
+    <p>@prop.Name</p>
+    <p>@prop.Description</p>
+    <p>@prop.Asset_condition</p>
+    <p>@prop.Category.CategoryName</p>
+    <p>@prop.StartBidDate</p>
+    <p>@prop.ExpiryBidDate</p>
+    <p>@prop.Cost</p>
+    <p>@prop.Image</p>
+    <p></p>
+    <p></p>
+    <p></p>
 }
-</div>

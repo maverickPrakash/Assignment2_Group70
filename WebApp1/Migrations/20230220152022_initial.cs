@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApp1.Migrations
 {
-    public partial class name : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,24 +49,20 @@ namespace WebApp1.Migrations
                     StartBidDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ExpiryBidDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Username1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Products_Users_Username1",
-                        column: x => x.Username1,
+                        name: "FK_Products_Users_Username",
+                        column: x => x.Username,
                         principalTable: "Users",
-                        principalColumn: "Username");
+                        principalColumn: "Username",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -82,44 +78,19 @@ namespace WebApp1.Migrations
                     { 6, "Computer" }
                 });
 
-            migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Username", "Email", "Password", "UserType" },
-                values: new object[,]
-                {
-                    { "buyer", "buer@gmail.com", "buyer", "buyer" },
-                    { "seller", "seller@gmail.com", "seller", "seller" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "Asset_condition", "CategoryId", "Cost", "Description", "ExpiryBidDate", "Image", "Name", "StartBidDate", "Username", "Username1" },
-                values: new object[,]
-                {
-                    { 1, "new", 1, "12.0", "Prakash has created product stuff", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9547), "sunflower.jgp", "Sunflower", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9501), "seller", null },
-                    { 2, "old", 2, "12.0", "Prakash has created product stuff", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9553), "Kitkat.jpg", "Kitkat", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9551), "seller", null },
-                    { 3, "new", 1, "12.0", "Fresh Tulip", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9558), "tulips.jpg", "Tulip", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9556), "seller", null },
-                    { 4, "old", 2, "12.0", "Sweet in taste", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9671), "Toblerone.jpg", "Tobelerone", new DateTime(2023, 2, 21, 17, 43, 38, 807, DateTimeKind.Local).AddTicks(9668), "buyer", null }
-                });
-
             migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryId",
+                name: "IX_Products_Username",
                 table: "Products",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_Username1",
-                table: "Products",
-                column: "Username1");
+                column: "Username");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Users");

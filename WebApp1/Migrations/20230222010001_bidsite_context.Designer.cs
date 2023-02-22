@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp1.Models;
 
@@ -11,9 +12,10 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    partial class BidSiteContextModelSnapshot : ModelSnapshot
+    [Migration("20230222010001_bidsite_context")]
+    partial class bidsite_context
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

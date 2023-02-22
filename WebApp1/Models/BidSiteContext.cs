@@ -37,7 +37,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 1,
                     Username = "seller",
-                    Image="sunflower.jgp"
+                    Image="sunflower.png"
 
                 },
                 new Product
@@ -51,7 +51,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 2,
                     Username = "seller",
-                    Image="Kitkat.jpg"
+                    Image="Kitkat.png"
 
                 },
                 new Product
@@ -65,7 +65,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 1,
                     Username = "seller",
-                    Image="tulips.jpg"
+                    Image="tulips.png"
 
                 },
                 new Product
@@ -79,7 +79,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 2,
                     Username = "buyer",
-                    Image="Toblerone.jpg"
+                    Image="Toblerone.png"
 
                 }
                 ); ;
