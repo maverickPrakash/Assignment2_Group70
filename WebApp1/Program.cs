@@ -14,14 +14,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
 builder.Services.AddControllersWithViews();
 //Email Setup
 
 builder.Services.AddTransient<IEmailSender, SendGridEmail>();
 
+builder.Services.AddRouting(options =>
+{
+    options.AppendTrailingSlash = true;
+    options.LowercaseUrls =true;
+});
 builder.Services.AddDbContext<BidSiteContext>(options =>
 options.UseSqlServer(connectionString));
 
@@ -49,7 +52,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
 app.MapRazorPages();
 
 app.Run();
