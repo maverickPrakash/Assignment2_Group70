@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 namespace WebApp1.Models
 {
     public class BidSiteContext : DbContext
@@ -37,7 +36,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 1,
                     Username = "seller",
-                    Image="sunflower.png"
+                    Image="sunflower.jgp"
 
                 },
                 new Product
@@ -51,7 +50,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 2,
                     Username = "seller",
-                    Image="Kitkat.png"
+                    Image="Kitkat.jpg"
 
                 },
                 new Product
@@ -65,7 +64,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 1,
                     Username = "seller",
-                    Image="tulips.png"
+                    Image="tulips.jpg"
 
                 },
                 new Product
@@ -79,7 +78,7 @@ namespace WebApp1.Models
                     Cost = "12.0",
                     CategoryId = 2,
                     Username = "buyer",
-                    Image="Toblerone.png"
+                    Image="Toblerone.jpg"
 
                 }
                 ); ;
