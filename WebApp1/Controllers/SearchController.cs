@@ -274,13 +274,14 @@ namespace WebApp1.Controllers
             {
                 return NotFound();
             }
-            int price = Convert.ToInt32(product.Cost);
-            price = price + 1;
-            product.Cost = price.ToString();
+            double Cost = Convert.ToDouble(product.Cost);
+            Cost = Cost + 1;
+            product.Cost = Cost.ToString();
             _context.Update(product);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Search", new { id = product.Id });
+
         }
 
 

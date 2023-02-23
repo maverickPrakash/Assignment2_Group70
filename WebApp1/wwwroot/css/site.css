@@ -528,12 +528,52 @@ h5 {
 }
 
 /*Details*/
-.detail-table {
-    font-family: arial, sans-serif;
-    margin-left: 10rem;
-    margin-top: 10px;
-    border-collapse: collapse;
-    width: 60%;
-    background-color: ghostwhite;
+
+.det-container {
+    background: #fff;
+    border: none;
 }
+
+.abc {
+    padding-left: 40px
+}
+
+.pqr {
+    padding-right: 70px;
+    padding-top: 14px
+}
+
+
+.det-list li {
+    list-style: none;
+    line-height: 50px;
+    color: #000;
+}
+
+.col-md-2 {
+    padding-bottom: 20px;
+}
+
+.det-list span {
+    font-weight: bold;
+}
+
+
+.col-md-2.mio {
+    font-size: 12px;
+    padding-top: 7px
+}
+
+
+.r4 {
+    padding-left: 25px
+}
+
+@media (min-width: 992px) {
+    .det-container {
+        max-width: 960px
+    }
+}
+
+
 

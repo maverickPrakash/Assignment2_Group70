@@ -5,61 +5,40 @@
 }
 
 <h1 class="det">Details</h1>
-<div class="dets">
-<table class="detail-table">
-    <tr>
-    <td>
-        <div>
-            <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width:20vw; height:40vh" />
-        </div>
-    </td>
-    <td>
-        <div>
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Name)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Description)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Cost)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Cost)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Asset_condition)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Asset_condition)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Category)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Category)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Image)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Image)
-                </dd>
-            </dl>
-        </div>
-    </td>
-    </tr>
-</table>
-</div>
 <hr />
+<div class="det-container py-4 my-4 mx-auto d-flex flex-column">
+    <div class="container-body mt-4">
+        <div class="row r3">
+            <div class="col-md-5 p-0 klo">
+                <ul class="det-list">
+                    <li>@Html.DisplayNameFor(model => model.Name) :  @Html.DisplayFor(model => model.Name)</li>
+                    <li>@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description) </li>
+                    <li> @Html.DisplayNameFor(model => model.Cost) :  @Html.DisplayFor(model => model.Cost) </li>
+                    <li> @Html.DisplayNameFor(model => model.Asset_condition) :  @Html.DisplayFor(model => model.Asset_condition) </li>
+                    <li>  @Html.DisplayNameFor(model => model.Category) :  @Html.DisplayFor(model => model.Category)</li>
+                    <li> @Html.DisplayNameFor(model => model.Image) : @Html.DisplayFor(model => model.Image)</li>
+   
+                </ul>
+            </div>
+            <div class="col-md-7"> <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width:20vw; height:40vh" /> </div>
+        </div>
+    </div>
+    <hr />
+    <div class="footer d-flex flex-column mt-5">
+        <div class="row r4">
+           
+            <div class="col-md-2 myt ">
+                <form method="post" asp-action="IncrementCost" asp-controller="Search">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-primary">Add Bid</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="back">
     <a asp-action="Index">Back to List</a>
 </div>
+
