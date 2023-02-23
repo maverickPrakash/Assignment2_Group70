@@ -6,46 +6,49 @@
 
 <h1 class="det">Details</h1>
 <hr />
-<div class="det-container py-4 my-4 mx-auto d-flex flex-column">
-    <div class="container-body mt-4">
-        <div class="row r3">
-            <div class="col-md-5 p-0 klo">
-                <ul class="det-list">
-                    <li>@Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)</li>
-                    <li>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description) </li>
-                    <li> @Html.DisplayNameFor(model => model.Cost):  @Html.DisplayFor(model => model.Cost) </li>
-                    <li> @Html.DisplayNameFor(model => model.Asset_condition):  @Html.DisplayFor(model => model.Asset_condition) </li>
-                    <li>  @Html.DisplayNameFor(model => model.Category):  
-                          @if (Model.Category != null)
-                            {
-                                @Html.DisplayFor(model => model.Category.CategoryName)
-                            }
-                            else
-                            {
-                                <span>No Category</span>
-                            }
-                    </li>
-                    <li> @Html.DisplayNameFor(model => model.Image): @Html.DisplayFor(model => model.Image)</li>
-   
-                </ul>
-            </div>
-            <div class="col-md-7"> <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width:20vw; height:40vh" /> </div>
-        </div>
-    </div>
-    <hr />
-    <div class="footer d-flex flex-column mt-5">
-        <div class="row r4">
-           
-            <div class="col-md-2 myt ">
-                <form method="post" asp-action="IncrementCost" asp-controller="Search">
-                    <input type="hidden" name="id" value="@Model.Id" />
-                    <button type="submit" class="btn btn-primary">Add Bid</button>
-                </form>
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4">  <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width:20vw; height:30vh" /> </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-md-6 product">
+                        <div class="product p-4">
+                                <div>@Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)</div><br />
+                                <div>@Html.DisplayNameFor(model => model.Cost):  @Html.DisplayFor(model => model.Cost)</div><br />
+                           
+                            <div>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</div><br />
+                            <div>
+                                @Html.DisplayNameFor(model => model.Category):  
+                                  @if (Model.Category != null)
+                                    {
+                                        @Html.DisplayFor(model => model.Category.CategoryName)
+                                    }
+                                    else
+                                    {
+                                        <span>No Category</span>
+                                    }
+                            </div><br />
+                            <hr />
+                            <div class="cart mt-4 align-items-center" style="float:right">
+                                <form method="post" asp-action="IncrementCost" asp-controller="Search">
+                                    <input type="hidden" name="id" value="@Model.Id" />
+                                    <button type="submit" class="btn btn-primary mr-2 px-4">Add Bid</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<hr />
 
 <div class="back">
     <a asp-action="Index">Back to List</a>

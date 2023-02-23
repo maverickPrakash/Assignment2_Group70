@@ -498,34 +498,35 @@ h5 {
 
 /*Details*/
 
-.det-container {
-    background: #fff;
-    border: none;
+.card {
+    border: none
 }
 
-.abc {
-    padding-left: 40px
+.product {
+    background-color: #eee;
 }
 
-.pqr {
-    padding-right: 70px;
-    padding-top: 14px
+.brand {
+    font-size: 13px
 }
 
-
-.det-list li {
-    list-style: none;
-    line-height: 50px;
-    color: #000;
+.act-price {
+    color: red;
+    font-weight: 700
 }
 
-.col-md-2 {
-    padding-bottom: 20px;
+.dis-price {
+    text-decoration: line-through
 }
 
-.det-list span {
-    font-weight: bold;
+.about {
+    font-size: 14px
 }
+
+.color {
+    margin-bottom: 10px
+}
+
 
 
 .col-md-2.mio {
