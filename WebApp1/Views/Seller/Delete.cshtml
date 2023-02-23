@@ -6,11 +6,15 @@
 
 }
 
-<h1>Delete the Item</h1>
+<h1 style="margin: 2rem">Delete the Item</h1>
 
 <hr />
 <form asp-controller="Seller" asp-action="Delete" method="post">
-    <p> Do you really want to delete <strong>@Model.Name</strong></p>
-    <button type="submit">Yes</button>
+    <div>
+        <p> Do you really want to delete <strong>@Model.Name</strong></p>
+    </div>
+   <div>
+        <button type="submit">Yes</button>
     <a asp-controller="Seller" asp-action="Index">No</a>
+   </div>
 </form>

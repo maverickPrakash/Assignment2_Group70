@@ -11,12 +11,21 @@
         <div class="row r3">
             <div class="col-md-5 p-0 klo">
                 <ul class="det-list">
-                    <li>@Html.DisplayNameFor(model => model.Name) :  @Html.DisplayFor(model => model.Name)</li>
-                    <li>@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description) </li>
-                    <li> @Html.DisplayNameFor(model => model.Cost) :  @Html.DisplayFor(model => model.Cost) </li>
-                    <li> @Html.DisplayNameFor(model => model.Asset_condition) :  @Html.DisplayFor(model => model.Asset_condition) </li>
-                    <li>  @Html.DisplayNameFor(model => model.Category) :  @Html.DisplayFor(model => model.Category)</li>
-                    <li> @Html.DisplayNameFor(model => model.Image) : @Html.DisplayFor(model => model.Image)</li>
+                    <li>@Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)</li>
+                    <li>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description) </li>
+                    <li> @Html.DisplayNameFor(model => model.Cost):  @Html.DisplayFor(model => model.Cost) </li>
+                    <li> @Html.DisplayNameFor(model => model.Asset_condition):  @Html.DisplayFor(model => model.Asset_condition) </li>
+                    <li>  @Html.DisplayNameFor(model => model.Category):  
+                          @if (Model.Category != null)
+                            {
+                                @Html.DisplayFor(model => model.Category.CategoryName)
+                            }
+                            else
+                            {
+                                <span>No Category</span>
+                            }
+                    </li>
+                    <li> @Html.DisplayNameFor(model => model.Image): @Html.DisplayFor(model => model.Image)</li>
    
                 </ul>
             </div>

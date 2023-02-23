@@ -357,37 +357,6 @@ input.btn-primary {
     padding-left: 20px;
 }
 
-.edit {
-    margin-left: 12rem;
-    width: 6rem;
-    background-color: dodgerblue;
-    color: white;
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center
-}
-
-.del, .delbtn {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-    width: 4rem;
-    background-color: red;
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-}
-
-    .del:hover {
-        background-color: firebrick;
-        color: #fff;
-    }
 
 .del {
     margin-left: 1rem;
@@ -575,5 +544,36 @@ h5 {
     }
 }
 
+.edi {
+    background-color:whitesmoke;
+}
 
+fieldset {
+    min-width: max-content;
+    width: auto;
+}
 
+.edit-form input{
+    width: 20rem;
+    height: fit-content;
+}
+
+.edit-form textarea {
+
+    width: 20rem;
+    border-radius: 3px;
+}
+
+.edit-form label {
+ 
+    width: 170px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+div.edit-form-btn {
+    padding: 10px;
+}

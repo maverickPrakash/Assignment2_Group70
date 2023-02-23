@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApp1.Migrations
 {
-    public partial class save : Migration
+    public partial class name : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,10 +96,10 @@ namespace WebApp1.Migrations
                 columns: new[] { "Id", "Asset_condition", "CategoryId", "Cost", "Description", "ExpiryBidDate", "Image", "Name", "StartBidDate", "Username", "Username1" },
                 values: new object[,]
                 {
-                    { 1, "new", 1, "11.0", "Prakash has created product stuff", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8753), "sunflower.jgp", "Sunflower", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8720), "seller", null },
-                    { 2, "old", 2, "12.0", "Prakash has created product stuff", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8757), "Kitkat.jpg", "Kitkat", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8756), "seller", null },
-                    { 3, "new", 1, "13.0", "Fresh Tulip", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8760), "tulips.jpg", "Tulip", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8759), "seller", null },
-                    { 4, "old", 2, "15.0", "Sweet in taste", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8763), "Toblerone.jpg", "Tobelerone", new DateTime(2023, 2, 22, 19, 5, 38, 81, DateTimeKind.Local).AddTicks(8761), "buyer", null }
+                    { 1, "new", 1, "11.0", "Prakash has created product stuff", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7610), "sunflower.jgp", "Sunflower", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7570), "seller", null },
+                    { 2, "old", 2, "12.0", "Prakash has created product stuff", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7616), "Kitkat.jpg", "Kitkat", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7614), "seller", null },
+                    { 3, "new", 1, "13.0", "Fresh Tulip", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7621), "tulips.jpg", "Tulip", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7619), "seller", null },
+                    { 4, "old", 2, "15.0", "Sweet in taste", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7625), "Toblerone.jpg", "Tobelerone", new DateTime(2023, 2, 22, 23, 48, 31, 554, DateTimeKind.Local).AddTicks(7623), "buyer", null }
                 });
 
             migrationBuilder.CreateIndex(

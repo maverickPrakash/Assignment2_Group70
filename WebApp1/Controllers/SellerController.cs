@@ -69,5 +69,11 @@ namespace WebApp1.Controllers
             
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+
     }
 }

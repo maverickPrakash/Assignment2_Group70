@@ -43,7 +43,7 @@
         <td>@prop.Image</td>
     </tr>
     <tr>
-        <td><button type="button" class="btn btn-secondary">Edit</button>    <a asp-controller="Seller" asp-action="Delete" asp-route-id="@prop.Id" asp-route-slug="@prop.Slug" class="btn btn-danger">Delete</a></td>
+        <td><a asp-controller="Seller" asp-action="Edit" type="button" class="btn btn-secondary">Edit</a>    <a asp-controller="Seller" asp-action="Delete" asp-route-id="@prop.Id" asp-route-slug="@prop.Slug" class="btn btn-danger">Delete</a></td>
     </tr>
   </table>
   <br/><br/>
