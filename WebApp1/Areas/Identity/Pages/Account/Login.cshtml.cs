@@ -3,6 +3,7 @@
 #nullable disable
 
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApp1.Models;
+
 
 namespace WebApp1.Areas.Identity.Pages.Account
 {
@@ -113,10 +115,28 @@ namespace WebApp1.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    var user = await _signInManager.UserManager.FindByNameAsync(Input.Username);
+                    IList<string> roles = await _signInManager.UserManager.GetRolesAsync(user);
+
+                    Debug.WriteLine(roles[0]);
+                    Debug.WriteLine("==================================");
+                    if (roles[0] == "Buyer")
+                    {
+                        return LocalRedirect("~/");
+                    }
+                    else
+                    {
+                        // return RedirectToAction("Index", "Seller");
+                        //_logger.LogInformation("User logged in.");
+                        //  Debug.WriteLine(User.IsInRole("Buyer"));
+                        return LocalRedirect("~/Seller");
+
+                    }
+
                 }
                 if (result.RequiresTwoFactor)
                 {
