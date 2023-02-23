@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - LocoTrade</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebApp1.styles.css" asp-append-version="true" />   
+    <link rel="stylesheet" href="~/WebApp1.styles.css" asp-append-version="true" />
 
 </head>
 <body>
@@ -21,14 +21,15 @@
                     <input type="submit" value="Search" class="searchButton">
                 </form>
             </div>
-            <div class="btns">  
-                <div class="register">
-                <a class="sec-last" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                </div>
-                <div class="login">
-                    <a class="last" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                </div>
+            @*<div class="btns">
+            <div class="register">
+            <a class="sec-last" asp-area="" asp-controller="User" asp-action="Register">Register</a>
             </div>
+            <div class="login">
+            <a class="last" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+            </div>
+            </div>*@
+            <partial name="_LoginPartial" />
         </div>
         <nav class="second-nav">
             <ul>
@@ -41,7 +42,7 @@
         </nav>
 
     </header>
-    <div >
+    <div>
         <main role="main">
             @RenderBody()
         </main>
@@ -62,7 +63,7 @@
             <div class="info">
                 <h3>Sarah Moustafa</h3>
                 <h4>Student id : 101376641</h4>
-                 <h4>Course : Web Application Development (COMP2139)</h4>
+                <h4>Course : Web Application Development (COMP2139)</h4>
                 <h4>Section: B</h4>
                 <p>Works on UX</p>
             </div>
@@ -70,22 +71,22 @@
             <div class="info">
                 <h3>Jayden Nguyen</h3>
                 <h4>Student id : 101363755</h4>
-                 <h4>Course : Web Application Development (COMP2139)</h4>
+                <h4>Course : Web Application Development (COMP2139)</h4>
                 <h4>Section: B</h4>
                 <p>Worked on search bar and </p>
             </div>
             @*<div class="info">
-                <h3>Yeganeh Daneshparvar</h3>
-                <h4>Student id : 101383730</h4>
-                 <h4>Course : Web Application Development (COMP2139)</h4>
-                <h4>Section: D</h4>
-                <p>worked on registration login, authorization</p>
+            <h3>Yeganeh Daneshparvar</h3>
+            <h4>Student id : 101383730</h4>
+            <h4>Course : Web Application Development (COMP2139)</h4>
+            <h4>Section: D</h4>
+            <p>worked on registration login, authorization</p>
             </div>*@
-             
+
         </div>
-        
-            <p class="copy-right"> &copy; 2023 - LocoTrade - <a asp-area="" asp-controller="Home" asp-action="Index">LocoTrade</a></p>
-      
+
+        <p class="copy-right"> &copy; 2023 - LocoTrade - <a asp-area="" asp-controller="Home" asp-action="Index">LocoTrade</a></p>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -25,7 +25,6 @@ namespace WebApp1.Controllers
         }
         public IActionResult Index()
         {
-
             return View(_BidSiteContext.Products.Include(c => c.Category).ToList());
         }
         [HttpPost]
