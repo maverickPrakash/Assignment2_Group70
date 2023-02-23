@@ -3,31 +3,34 @@ using Microsoft.EntityFrameworkCore;
 using WebApp1.Models;
 using System.IO;
 using System.Web;
-
+using Microsoft.IdentityModel;
 using Microsoft.AspNetCore.Server;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp1.Controllers
 {
-    
+    [Authorize(Roles = "Seller")]
     public class SellerController : Controller
     {
-        private readonly IWebHostEnvironment _hostingEnvironment;
-       
 
-        
+
+        private readonly IWebHostEnvironment _hostingEnvironment;
+
+
         private BidSiteContext _BidSiteContext { get; set; }
         public SellerController(BidSiteContext cont, IWebHostEnvironment hostEnvironment)
         {
-            _BidSiteContext=cont;
-            this._hostingEnvironment=hostEnvironment;
+            _BidSiteContext = cont;
+            this._hostingEnvironment = hostEnvironment;
         }
         public IActionResult Index()
         {
-            
+
             return View(_BidSiteContext.Products.Include(c => c.Category).ToList());
         }
         [HttpPost]
-        public async Task<IActionResult> AddProductAsync(Product product) {
+        public async Task<IActionResult> AddProductAsync(Product product)
+        {
             if (ModelState.IsValid)
             {
                 //Save image to wwwroot/image
@@ -51,7 +54,7 @@ namespace WebApp1.Controllers
         public IActionResult AddItem()
         {
             var product = new Product();
-            ViewBag.Categories= _BidSiteContext.Categories.ToList();
+            ViewBag.Categories = _BidSiteContext.Categories.ToList();
             return View(product);
         }
         [HttpGet]
@@ -63,10 +66,10 @@ namespace WebApp1.Controllers
         [HttpPost]
         public IActionResult Delete(Product p)
         {
-            
+
             _BidSiteContext.Products.Remove(p);
             _BidSiteContext.SaveChanges();
-            
+
             return RedirectToAction(nameof(Index));
         }
 
