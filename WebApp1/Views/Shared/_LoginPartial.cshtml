@@ -3,28 +3,30 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
             <a class="sec-last" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="sec-last">Logout</button>
-        </form>
-    </li>
-}
+            </form>
+        </li>
+    }
 </ul>
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div class="btns">
+        <div class="register">
+            <a class="sec-last" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </div>
+        <div class="login">
+            <a class="last" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
 
-  <div class="btns">
-            <div class="register">
-        <a class="sec-last" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                </div>
-                <div class="login">
-        <a class="last" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </div>
 
-            </div>
-            
-        
 
+
+}
