@@ -12,10 +12,14 @@ namespace WebApp1.Controllers
     public class SellerController : Controller
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
+       
+
+        
         private BidSiteContext _BidSiteContext { get; set; }
-        public SellerController(BidSiteContext cont)
+        public SellerController(BidSiteContext cont, IWebHostEnvironment hostEnvironment)
         {
             _BidSiteContext=cont;
+            this._hostingEnvironment=hostEnvironment;
         }
         public IActionResult Index()
         {
@@ -23,16 +27,25 @@ namespace WebApp1.Controllers
             return View(_BidSiteContext.Products.Include(c => c.Category).ToList());
         }
         [HttpPost]
-        public IActionResult AddProduct(Product product) {
-            string filename = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-            string extension = Path.GetExtension(product.ImageFile.FileName);
-            filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-            product.Image = "~/Images/" + filename;
-            filename = Path.Combine(Server.MapPath("~/Images/"), filename);
-            product.ImageFile.SaveAs(filename);
-            ViewBag.Product = product;
-        _BidSiteContext.Products.Add(product);
-            return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> AddProductAsync(Product product) {
+            if (ModelState.IsValid)
+            {
+                //Save image to wwwroot/image
+                string wwwRootPath = _hostingEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                string extension = Path.GetExtension(product.ImageFile.FileName);
+                product.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await product.ImageFile.CopyToAsync(fileStream);
+                }
+                //Insert record
+                _BidSiteContext.Add(product);
+                await _BidSiteContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(product);
         }
 
         public IActionResult AddItem()

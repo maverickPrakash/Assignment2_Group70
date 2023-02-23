@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WebApp1.Models
 {
     public class Product
@@ -7,7 +8,8 @@ namespace WebApp1.Models
         [Key]
         public int Id { get; set; }
         public string? Image { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
         [Required(ErrorMessage="Please enter a valid Product Name")]
         public string? Name { get; set; }
         [Required(ErrorMessage = "Please enter a valid Product Description")]

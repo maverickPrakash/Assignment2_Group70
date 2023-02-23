@@ -33,7 +33,7 @@ namespace WebApp1.Models
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
                     Asset_condition = "new",
-                    Cost = "12.0",
+                    Cost = "11.0",
                     CategoryId = 1,
                     Username = "seller",
                     Image="sunflower.jgp"
@@ -61,7 +61,7 @@ namespace WebApp1.Models
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
                     Asset_condition = "new",
-                    Cost = "12.0",
+                    Cost = "13.0",
                     CategoryId = 1,
                     Username = "seller",
                     Image="tulips.jpg"
@@ -75,7 +75,7 @@ namespace WebApp1.Models
                     StartBidDate = DateTime.Now,
                     ExpiryBidDate = DateTime.Now,
                     Asset_condition = "old",
-                    Cost = "12.0",
+                    Cost = "15.0",
                     CategoryId = 2,
                     Username = "buyer",
                     Image="Toblerone.jpg"

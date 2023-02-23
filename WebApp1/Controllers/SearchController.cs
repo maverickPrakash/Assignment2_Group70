@@ -12,9 +12,9 @@ namespace WebApp1.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BidSiteContext _context;
 
-        public SearchController(ApplicationDbContext context)
+        public SearchController(BidSiteContext context)
         {
             _context = context;
         }
@@ -22,18 +22,18 @@ namespace WebApp1.Controllers
         // GET: Search
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _context.Products.ToListAsync());
         }
 
         // GET: Search/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.Products == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -62,12 +62,12 @@ namespace WebApp1.Controllers
             if (item != null)
             {
                 ViewBag.Item = item;
-                return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
+                return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
             }
             else
             {
                 ViewBag.Item = item;
-                return View("Index", await _context.Product.ToListAsync());
+                return View("Index", await _context.Products.ToListAsync());
             }
 
         }
@@ -87,28 +87,28 @@ namespace WebApp1.Controllers
                         switch (field)
                         {
                             case "Name":
-                                return View("Index", await _context.Product.OrderBy(e => e.Name).ToListAsync());
+                                return View("Index", await _context.Products.OrderBy(e => e.Name).ToListAsync());
 
                             case "Cost":
-                                return View("Index", await _context.Product.OrderBy(e => e.Cost).ToListAsync());
+                                return View("Index", await _context.Products.OrderBy(e => e.Cost).ToListAsync());
 
                             case "Category":
-                                return View("Index", await _context.Product.OrderBy(e => e.Category).ToListAsync());
+                                return View("Index", await _context.Products.OrderBy(e => e.Category).ToListAsync());
 
                             default:
-                                return View("Index", await _context.Product.ToListAsync());
+                                return View("Index", await _context.Products.ToListAsync());
                         }
                     case "ASC":
                         switch (field)
                         {
                             case "Name":
-                                return View("Index", await _context.Product.OrderBy(e => e.Name).ToListAsync());
+                                return View("Index", await _context.Products.OrderBy(e => e.Name).ToListAsync());
 
                             case "Cost":
-                                return View("Index", await _context.Product.OrderByDescending(e => e.Cost).ToListAsync());
+                                return View("Index", await _context.Products.OrderByDescending(e => e.Cost).ToListAsync());
 
                             default:
-                                return View("Index", await _context.Product.ToListAsync());
+                                return View("Index", await _context.Products.ToListAsync());
                         }
 
                 }
@@ -121,34 +121,34 @@ namespace WebApp1.Controllers
                     switch (field)
                     {
                         case "Name":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Name).ToListAsync());
 
                         case "Cost":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Cost).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Cost).ToListAsync());
 
                         case "Category":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Category).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderBy(e => e.Category).ToListAsync());
                         default:
-                            return View("Index", await _context.Product.ToListAsync());
+                            return View("Index", await _context.Products.ToListAsync());
 
                     }
                 case "ASC":
                     switch (field)
                     {
                         case "Name":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Name).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Name).ToListAsync());
 
                         case "Cost":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Cost).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Cost).ToListAsync());
 
                         case "Category":
-                            return View("Index", await _context.Product.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Category).ToListAsync());
+                            return View("Index", await _context.Products.Where(j => j.Name.Contains(item) || j.Description.Contains(item) || j.Category.CategoryName.Contains(item)).OrderByDescending(e => e.Category).ToListAsync());
                         default:
-                            return View("Index", await _context.Product.ToListAsync());
+                            return View("Index", await _context.Products.ToListAsync());
 
                     }
                 default:
-                    return View("Index", await _context.Product.ToListAsync());
+                    return View("Index", await _context.Products.ToListAsync());
 
             }
 
@@ -177,12 +177,12 @@ namespace WebApp1.Controllers
         // GET: Search/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.Products == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -227,12 +227,12 @@ namespace WebApp1.Controllers
         // GET: Search/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.Products == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -247,14 +247,14 @@ namespace WebApp1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Product == null)
+            if (_context.Products == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Product'  is null.");
             }
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product != null)
             {
-                _context.Product.Remove(product);
+                _context.Products.Remove(product);
             }
 
             await _context.SaveChangesAsync();
@@ -263,13 +263,13 @@ namespace WebApp1.Controllers
 
         private bool ProductExists(int id)
         {
-            return _context.Product.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
 
         [HttpPost]
         public async Task<IActionResult> IncrementCost(int id)
         {
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
