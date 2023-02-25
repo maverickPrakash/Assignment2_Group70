@@ -7,6 +7,7 @@ using Microsoft.IdentityModel;
 using Microsoft.AspNetCore.Server;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace WebApp1.Controllers
 {
     [Authorize(Roles = "Seller")]
@@ -30,8 +31,11 @@ namespace WebApp1.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProductAsync(Product product)
         {
+            ViewBag.userId = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
+                
                 //Save image to wwwroot/image
                 string wwwRootPath = _hostingEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
