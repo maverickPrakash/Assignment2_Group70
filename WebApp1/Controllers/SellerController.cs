@@ -26,7 +26,7 @@ namespace WebApp1.Controllers
         }
         public IActionResult Index()
         {
-            return View(_BidSiteContext.Products.Include(c => c.Category).ToList());
+            return View(_BidSiteContext.Products.Include(c => c.Category).ToList().Where(c => c.Username.Contains(User.Identity.GetUserId())));
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
