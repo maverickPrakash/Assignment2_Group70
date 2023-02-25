@@ -10,7 +10,11 @@ namespace WebApp1.Data
             : base(options)
         {
         }
-        public DbSet<WebApp1.Models.Product> Product { get; set; }
-        
+        protected ApplicationDbContext(DbContextOptions options)
+            : base(options)
+        {
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp1.Models
@@ -23,9 +24,10 @@ namespace WebApp1.Models
         [Range(1,6, ErrorMessage="Select Correct Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-        public String? Username { get; set; }
-        public User? User { get; set; }
-        
+        [ForeignKey("AspNetUsers")]
+        public string Username { get; set; }
+        public virtual IdentityUser AspNetUsers { get; set; }
+
 
         public string Slug => Name==null? "" : Name.Replace(" ", "-");
        
