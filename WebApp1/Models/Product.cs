@@ -25,7 +25,7 @@ namespace WebApp1.Models
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
         [ForeignKey("AspNetUsers")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
         public virtual IdentityUser AspNetUsers { get; set; }
 
 

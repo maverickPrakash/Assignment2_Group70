@@ -6,7 +6,7 @@ using System.Web;
 using Microsoft.IdentityModel;
 using Microsoft.AspNetCore.Server;
 using Microsoft.AspNetCore.Authorization;
-
+using Microsoft.AspNet.Identity;
 
 namespace WebApp1.Controllers
 {
@@ -29,19 +29,19 @@ namespace WebApp1.Controllers
             return View(_BidSiteContext.Products.Include(c => c.Category).ToList());
         }
         [HttpPost]
-        public async Task<IActionResult> AddProductAsync(Product product)
+        public async Task<IActionResult> AddProduct(Product product)
         {
             ViewBag.userId = User.Identity.GetUserId();
 
-            if (ModelState.IsValid)
-            {
+           
                 
                 //Save image to wwwroot/image
                 string wwwRootPath = _hostingEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
                 string extension = Path.GetExtension(product.ImageFile.FileName);
+                product.Username = User.Identity.GetUserId();
                 product.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                string path = Path.Combine(wwwRootPath + "/Images/", fileName);
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await product.ImageFile.CopyToAsync(fileStream);
@@ -50,8 +50,8 @@ namespace WebApp1.Controllers
                 _BidSiteContext.Add(product);
                 await _BidSiteContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+            
+            
         }
 
         public IActionResult AddItem()
