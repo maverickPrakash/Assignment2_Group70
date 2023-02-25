@@ -10,7 +10,7 @@
             {
                 if (User.IsInRole("Seller"))
                 {
-                    <a asp-controller="Seller">Seller Panel</a>
+                    <a asp-controller="Seller" asp-action="Index">Seller Panel</a>
                 }
             }
             <a class="sec-last" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
