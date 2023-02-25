@@ -18,6 +18,10 @@ html {
     .welcome img {
         width: 100%
     }
+
+    .bidItem {
+        width: 45%;
+    }
 }
 
 html {
@@ -573,16 +577,28 @@ fieldset {
 div.edit-form-btn {
     padding: 10px;
 }
-#newBid{
-    display:flex;
-    position:relative;
-    justify-content:center;
-    justify-items:center;
+#newBid {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
     
+    color: black;
     
 }
 #BidSection {
+    position: relative;
     background-color: white;
-    height: 50vh;
+    min-height: 50vh;
+    color: black;
+    padding: 4% 0;
+}
+
+#newBid h5{
     color:black;
+}
+.bidItem {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 23%;
+    text-align: center;
+    margin: 2% 1%;
 }
