@@ -36,10 +36,23 @@
                             </div><br />
                             <hr />
                             <div class="cart mt-4 align-items-center" style="float:right">
-                                <form method="post" asp-action="IncrementCost" asp-controller="Search">
-                                    <input type="hidden" name="id" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-primary mr-2 px-4">Add Bid</button>
-                                </form>
+                                
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <form method="post" asp-action="IncrementCost" asp-controller="Search">
+                                        <input type="hidden" name="id" value="@Model.Id" />
+                                        <button type="submit" class="btn btn-primary mr-2 px-4">Add Bid</button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                            <a class="btn btn-primary mr-2 px-4" asp-area="Identity" asp-page="/Account/Login">Login to Add Bidding</a>
+                                       
+                                    }
+
+                                    
+                                
                             </div>
                         </div>
                     </div>
