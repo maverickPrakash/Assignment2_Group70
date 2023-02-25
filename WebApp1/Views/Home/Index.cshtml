@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Product>;
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -17,6 +17,30 @@
         </div>
 
     </div>
+</div>
+<div id="BidSection">
+<h3>Recently Added Item</h3>
+<div id="newBid" >
+    
+
+    @foreach (var item in Model)
+{
+    
+<a asp-action="Details" asp-controller="Search" asp-route-id="@item.Id">
+
+            <div style="width:25%;">
+            <img src="~/Images/@item.Image" style="width:100%; height:100%">
+       
+            <h5>@item.Name</h5>
+     
+     
+                <h4 class="mr-1"> <span class="text-price"> $ @item.Cost</span></h4>
+            </div>
+            
+
+</a>
+}
+</div>
 </div>
 <div id="mainDisplay">    
             <div class="cateDis"><a asp-controller="Search" asp-action="QueueResult" asp-route-item="home">

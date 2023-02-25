@@ -573,3 +573,16 @@ fieldset {
 div.edit-form-btn {
     padding: 10px;
 }
+#newBid{
+    display:flex;
+    position:relative;
+    justify-content:center;
+    justify-items:center;
+    
+    
+}
+#BidSection {
+    background-color: white;
+    height: 50vh;
+    color:black;
+}

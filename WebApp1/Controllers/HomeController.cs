@@ -7,18 +7,19 @@ namespace WebApp1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private BidSiteContext _BidSiteContext { get; set; }
+        public HomeController(ILogger<HomeController> logger, BidSiteContext cont)
         {
             _logger = logger;
+            _BidSiteContext = cont;
         }
 
         
         
         public IActionResult Index()
         {
-            
-            return View();
+
+            return View(_BidSiteContext.Products);
         }
 
         public IActionResult Privacy()
