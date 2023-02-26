@@ -241,6 +241,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     color: black;
+    margin-bottom:2%;
 }
 
     #mainDisplay a {
@@ -251,6 +252,7 @@ a {
     padding: 2%;
     width: 33%;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
     .cateDis img {
@@ -629,7 +631,17 @@ h3{
         width: 100%
     }
 
+    .bidItem {
+        width: 48%
+    }
+
     .txtSearch {
         width: 100%
+    }
+
+    .cateDis {
+        justify-content:center;
+        justify-items:center;
+        width: 46%
     }
 }
