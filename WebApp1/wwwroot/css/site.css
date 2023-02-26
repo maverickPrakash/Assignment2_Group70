@@ -602,3 +602,21 @@ div.edit-form-btn {
     text-align: center;
     margin: 2% 1%;
 }
+
+.ed-t {
+    border-collapse: collapse;
+    width: 70rem;
+}
+
+.ro {
+    border: 1px solid #ddd;
+    height: 5rem;
+}
+
+.ed-td {
+    padding-left: 1rem;
+}
+
+h3{
+    margin-left: 1rem;
+}
