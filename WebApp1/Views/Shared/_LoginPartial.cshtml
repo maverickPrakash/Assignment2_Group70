@@ -2,16 +2,16 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
+<ul class="userlogin"  >
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item">
+        <li >
  
             <a class="sec-last" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
         </li>
-        <li class="nav-item">
+        <li >
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="sec-last">Logout</button>
+                <button type="submit" class="sec-last btn btn-danger">Logout</button>
             </form>
         </li>
     }

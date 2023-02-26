@@ -18,7 +18,7 @@
             <div class="search-bar">
                 <form asp-controller="Search" asp-action="QueueResult">
                     <input type="text" name="item" class="txtSearch" />
-                    <input type="submit" value="Search" class="searchButton">
+                    <input type="submit" value="Search" class="btn btn btn-warning searchButton">
                 </form>
             </div>
             @*<div class="btns">
@@ -38,7 +38,7 @@
                 {
                     if (User.IsInRole("Seller"))
                     {
-                       <li style="float: left"> <a asp-controller="Seller" asp-action="Index" cl>My Account</a> </li>
+                       <li style="float: left"> <a asp-controller="Seller" asp-action="Index" cl>Seller Panel</a> </li>
                     }
                 }
                 <li><a asp-action="QueueResult" asp-route-item="Electronic" asp-controller="Search" class="elc">Electronics</a></li>
