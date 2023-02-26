@@ -95,7 +95,7 @@ namespace WebApp1.Controllers
                                 return View("Index", await _context.Products.OrderBy(e => e.Cost).ToListAsync());
 
                             case "Category":
-                                return View("Index", await _context.Products.OrderBy(e => e.Category).ToListAsync());
+                                return View("Index", await _context.Products.OrderBy(e => e.Category.CategoryName).ToListAsync());
 
                             default:
                                 return View("Index", await _context.Products.ToListAsync());
