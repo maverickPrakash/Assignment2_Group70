@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApp1.Migrations
 {
-    public partial class sasve : Migration
+    public partial class name : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -181,7 +181,7 @@ namespace WebApp1.Migrations
                     StartBidDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ExpiryBidDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -190,8 +190,7 @@ namespace WebApp1.Migrations
                         name: "FK_Products_AspNetUsers_Username",
                         column: x => x.Username,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,

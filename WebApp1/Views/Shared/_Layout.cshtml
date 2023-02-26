@@ -34,9 +34,13 @@
         </div>
         <nav class="second-nav">
             <ul>
-                
-
-                
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Seller"))
+                    {
+                       <li style="float: left"> <a asp-controller="Seller" asp-action="Index" cl>My Account</a> </li>
+                    }
+                }
                 <li><a asp-action="QueueResult" asp-route-item="Electronic" asp-controller="Search" class="elc">Electronics</a></li>
                 <li><a asp-action="QueueResult" asp-route-item="Home" asp-controller="Search" class="elc">Home</a></li>
                 <li><a asp-action="QueueResult" asp-route-item="Fashion" asp-controller="Search" class="elc">Fashion</a></li>
@@ -48,6 +52,10 @@
     <div>
         <main role="main">
             @RenderBody()
+            <script>
+                var today = new Date().toISOString().split('T')[0];
+                document.getElementById("datetimepicker").setAttribute('min', today);
+            </script>
         </main>
     </div>
 

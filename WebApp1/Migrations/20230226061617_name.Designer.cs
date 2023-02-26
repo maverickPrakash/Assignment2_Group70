@@ -12,8 +12,8 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230225071423_sasve")]
-    partial class sasve
+    [Migration("20230226061617_name")]
+    partial class name
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -312,7 +312,6 @@ namespace WebApp1.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -385,9 +384,7 @@ namespace WebApp1.Migrations
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AspNetUsers")
                         .WithMany()
-                        .HasForeignKey("Username")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Username");
 
                     b.Navigation("AspNetUsers");
 
