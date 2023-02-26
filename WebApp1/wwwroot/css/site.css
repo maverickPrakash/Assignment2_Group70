@@ -8,21 +8,7 @@ html {
     font-size: 14px;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
 
-@media (max-width: 1200px) {
-    .welcome img {
-        width: 100%
-    }
-
-    .bidItem {
-        width: 45%;
-    }
-}
 
 html {
     min-width: 550px;
@@ -70,22 +56,9 @@ header {
 }
 
 
-@media (max-width: 768px) {
-    .search-bar {
-        width: 200px;
-    }
 
-    .txtSearch{
-        width:1rem;
-    }
-  
-}
 
-@media (max-width: 576px) {
-    .search-bar {
-        width: 150px;
-    }
-}
+
 
 
 .login, .register {
@@ -643,4 +616,20 @@ div.edit-form-btn {
 
 h3{
     margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .welcome img {
+        width: 100%
+    }
+
+    .txtSearch {
+        width: 100%
+    }
 }
