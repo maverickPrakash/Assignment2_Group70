@@ -33,12 +33,14 @@ namespace WebApp1.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var product = await _context.Products.Include(c => c.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
+             
             }
+           
 
             return View(product);
         }
