@@ -78,7 +78,31 @@ namespace WebApp1.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            ViewBag.Categories = _BidSiteContext.Categories.ToList();
+            var item = _BidSiteContext.Products.Find(id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> editData(Product product)
+        {
+            //Save image to wwwroot/image
+            string wwwRootPath = _hostingEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+            string extension = Path.GetExtension(product.ImageFile.FileName);
+            product.Username = User.Identity.GetUserId();
+            product.Image = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/Images/", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await product.ImageFile.CopyToAsync(fileStream);
+            }
+            //Update record
+            _BidSiteContext.Products.Update(product);
+             _BidSiteContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
+
+           
         }
 
     }

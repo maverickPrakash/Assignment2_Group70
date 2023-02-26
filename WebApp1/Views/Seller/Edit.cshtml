@@ -9,12 +9,13 @@
 <hr />
            
                    
-<form  enctype="multipart/form-data" method="post" style="background-color:whitesmoke">
+<form  asp-action="editData" asp-controller="Seller" enctype="multipart/form-data" method="post" style="background-color:whitesmoke">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div style="margin-left: 5rem; margin-top: 5rem; margin-bottom: 5rem;">
     <table class="ed-t">
         <tr class="ro">
             <td class="ed-td">Product Name</td>
+            <input asp-for="Id" hidden >
             <td><input asp-for="Name" type="text" placeholder="PRODUCT NAME"></td>
             <span class="text-danger"></span>
         </tr>
@@ -27,14 +28,14 @@
     
         <tr class="ro">
             <td class="ed-td">Start Date</td>
-            <td><input  asp-for="StartBidDate" type="datetime-local" value="2023-01-12T19:30"
+            <td><input  asp-for="StartBidDate" type="datetime-local"
                 min="2023-02-20T00:00" max="2023-04-30T00:00"></td>
                 <span class="text-danger"></span>
         </tr>
     
         <tr class="ro">
             <td class="ed-td">End Date</td>
-            <td><input  asp-for="ExpiryBidDate" type="datetime-local" value="2023-01-12T19:30"
+            <td><input  asp-for="ExpiryBidDate" type="datetime-local" 
                 min="2023-02-20T00:00" max="2023-04-30T00:00"></td>
                 <span class="text-danger"></span>
         </tr>
@@ -62,9 +63,13 @@
             <td class="ed-td">Category</td>
             <td>
                
-               <select style="width: 10rem">
-                   <option>any</option>
-               </select>
+               <select style="width: 10rem" asp-for="CategoryId">
+                   
+                         @foreach(Category cat  in @ViewBag.Categories)
+                        {
+                            <option value="@cat.CategoryId">@cat.CategoryName</option>
+                        }
+                    </select>
             </td>
         </tr>
         <tr class="ro">
@@ -72,14 +77,14 @@
             <td>
             <div style="display: flex">
             <img src="~/Images/@Html.DisplayFor(model => model.Image)" width="60" height="60">
-            <input type="file" style="margin-left: 2rem; margin-top: 1rem">
+            <input type="file" asp-for="ImageFile" style="margin-left: 2rem; margin-top: 1rem">
             </div>
             </td>   
         </tr>
     
         <tr class="ro">
             <td class="ed-td">
-                 <button type="button" class="btn btn-info">Update</button> 
+                 <button type="submit" class="btn btn-info">Update</button> 
                  <a asp-action="index" asp-controller="Seller" type="button" class="btn btn-danger">Cancel</a>
             </td>
         </tr>
