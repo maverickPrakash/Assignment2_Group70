@@ -680,3 +680,35 @@ h3{
 
 }
 
+.ed-t {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+.ed-td {
+  font-weight: bold;
+}
+
+.ed-inputs {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .ed-t tr {
+    display: block;
+    margin-bottom: 16px;
+    border: none;
+  }
+  
+  .ed-t td {
+    display: block;
+    font-weight: normal;
+  }
+}

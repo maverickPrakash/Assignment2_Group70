@@ -11,18 +11,18 @@
                    
 <form  asp-action="editData" asp-controller="Seller" enctype="multipart/form-data" method="post" style="background-color:whitesmoke">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div style="margin-left: 5rem; margin-top: 5rem; margin-bottom: 5rem;">
+   
     <table class="ed-t">
         <tr class="ro">
             <td class="ed-td">Product Name</td>
             <input asp-for="Id" hidden >
-            <td><input asp-for="Name" type="text" placeholder="PRODUCT NAME"></td>
+            <td><input asp-for="Name" type="text" class="ed-inputs" placeholder="PRODUCT NAME"></td>
             <span class="text-danger"></span>
         </tr>
     
         <tr class="ro">
             <td class="ed-td">Product Description</td>
-            <td><textarea asp-for="Description"   placeholder="PRODUCT DESCRIPTION..."></textarea></td>
+            <td><textarea  class="ed-inputs" asp-for="Description"   placeholder="PRODUCT DESCRIPTION..."></textarea></td>
             <span class="text-danger"></span>
         </tr>
     
@@ -38,7 +38,7 @@
         <tr class="ro">
             <td class="ed-td">End Date</td>
                 <td>
-                    <input asp-for="ExpiryBidDate" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"
+                    <input  asp-for="ExpiryBidDate" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")"
                   min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" max="2023-05-30T00:00" id="datetimepicker">
             </td>
                 <span class="text-danger"></span>
@@ -46,14 +46,14 @@
     
         <tr class="ro">
             <td class="ed-td">Product Cost</td>
-            <td><input asp-for="Cost" placeholder="PRODUCT COST"></td>
+            <td><input class="ed-inputs" asp-for="Cost" placeholder="PRODUCT COST"></td>
             <span class="text-danger"></span>
         </tr>
     
         <tr class="ro">
             <td class="ed-td">Asset Condition</td>
             <td>
-            <select style="width: 10rem" asp-for="Asset_condition">
+            <select class="ed-inputs" asp-for="Asset_condition">
                  <option value="">CONDITION</option>
                         <option value="new">New</option>
                         <option value="good">Good</option>
@@ -67,7 +67,7 @@
             <td class="ed-td">Category</td>
             <td>
                
-               <select style="width: 10rem" asp-for="CategoryId">
+               <select class="ed-inputs" asp-for="CategoryId">
                    
                          @foreach(Category cat  in @ViewBag.Categories)
                         {
@@ -94,7 +94,7 @@
         </tr>
     
     </table>
-</div>
+
 
 </form>
 
