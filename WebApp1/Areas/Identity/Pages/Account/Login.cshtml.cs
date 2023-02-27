@@ -149,7 +149,7 @@ namespace WebApp1.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Please confirm your email!");
+                    ModelState.AddModelError(string.Empty, "Your username or password may be incorrect");
                     return Page();
                 }
             }
