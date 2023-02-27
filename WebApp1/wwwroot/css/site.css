@@ -55,12 +55,27 @@ header {
     width: 150px;
 }
 
+.logout {
+    display: flex;
+    float: right;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
+.greeting {
+    margin-top: .5rem;
+    display: flex;
+    float: right;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
-
-
-
-
+.greeting:hover {
+    background-color: white;
+    border-radius: 3px;
+}
 .login, .register {
     display: flex;
     float: right;
@@ -654,6 +669,14 @@ h3{
     .cateDis {
         justify-content:center;
         justify-items:center;
-        width: 46%
+        width: 46%;
     }
+
+    .greeting {
+        margin-top: 0rem; 
+        font-size: 16px;
+    }
+
+
 }
+
