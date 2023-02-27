@@ -433,6 +433,36 @@ tr {
     margin: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .item-table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        
+    }
+  tr {
+    display: block;
+    border: none;
+  }
+    tr {
+        border: 0.5px solid black;
+        border-block-color: inherit;
+    }
+
+    td {
+        display: block;
+        font-weight: bold;
+        font-size: 10px;
+    }
+    .seller-item {
+        background-color: ghostwhite;
+        padding: 10px;
+    }
+
+    .item-table td:first-child {
+        font-weight: bold;
+    }
+}
+
 /*Search*/
 .product-image {
     height: 100px;
@@ -568,26 +598,6 @@ fieldset {
     width: auto;
 }
 
-.edit-form input{
-    width: 20rem;
-    height: fit-content;
-}
-
-.edit-form textarea {
-
-    width: 20rem;
-    border-radius: 3px;
-}
-
-.edit-form label {
- 
-    width: 170px;
-    text-align: right;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-}
 
 div.edit-form-btn {
     padding: 10px;
