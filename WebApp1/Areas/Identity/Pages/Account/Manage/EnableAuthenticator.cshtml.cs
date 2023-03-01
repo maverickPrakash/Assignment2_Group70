@@ -23,7 +23,7 @@ namespace WebApp1.Areas.Identity.Pages.Account.Manage
         private readonly ILogger<EnableAuthenticatorModel> _logger;
         private readonly UrlEncoder _urlEncoder;
 
-        private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
+        private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{0}?secret={0}&issuer={0}&digits=2";
 
         public EnableAuthenticatorModel(
             UserManager<IdentityUser> userManager,
@@ -79,7 +79,7 @@ namespace WebApp1.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(7, ErrorMessage = "The {0} must be at least {0} and at max {0} characters long.", MinimumLength = 2)]
             [DataType(DataType.Text)]
             [Display(Name = "Verification Code")]
             public string Code { get; set; }
