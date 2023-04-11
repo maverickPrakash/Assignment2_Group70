@@ -54,7 +54,7 @@
             <td class="ed-td">Asset Condition</td>
             <td>
             <select class="ed-inputs" asp-for="Asset_condition">
-                 <option value="">CONDITION</option>
+                 <option value="" selected disabled>CONDITION</option>
                         <option value="new">New</option>
                         <option value="good">Good</option>
                         <option value="used">Used</option>
@@ -62,12 +62,25 @@
             </td>
             <span class="text-danger"></span>
         </tr>
-    
+    <tr class="ro">
+            <td class="ed-td">Bid Status </td>
+            <td>
+            <select class="ed-inputs" asp-for="status">
+                
+                        <option value="open">Open</option>
+                        <option value="sold">Sold</option>
+                        <option value="close">Close</option>
+
+                       
+            </select>
+            </td>
+            <span class="text-danger"></span>
+        </tr>
         <tr class="ro">
             <td class="ed-td">Category</td>
             <td>
                
-               <select class="ed-inputs" asp-for="CategoryId">
+               <select class="ed-inputs"  asp-for="CategoryId">
                    
                          @foreach(Category cat  in @ViewBag.Categories)
                         {
@@ -81,7 +94,7 @@
             <td>
             <div style="display: flex">
             <img src="~/Images/@Html.DisplayFor(model => model.Image)" width="60" height="60">
-            <input type="file" asp-for="ImageFile" style="margin-left: 2rem; margin-top: 1rem">
+            <input type="file" asp-for="ImageFile" style="margin-left: 2rem; margin-top: 1rem" required>
             </div>
             </td>   
         </tr>

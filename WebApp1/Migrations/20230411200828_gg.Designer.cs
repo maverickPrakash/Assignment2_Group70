@@ -12,8 +12,8 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230226061617_name")]
-    partial class name
+    [Migration("20230411200828_gg")]
+    partial class gg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,6 +226,33 @@ namespace WebApp1.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("WebApp1.Models.Bid", b =>
+                {
+                    b.Property<int>("BidId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BidId"), 1L, 1);
+
+                    b.Property<string>("Bidder")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bidstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Cost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BidId");
+
+                    b.ToTable("Bids");
+                });
+
             modelBuilder.Entity("WebApp1.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -287,6 +314,9 @@ namespace WebApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Bidder")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -314,13 +344,55 @@ namespace WebApp1.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Bidder");
 
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("Username");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WebApp1.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
+
+                    b.Property<string>("AspNetUsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BuyerUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SellerUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("star")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("AspNetUsersId");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -376,6 +448,10 @@ namespace WebApp1.Migrations
 
             modelBuilder.Entity("WebApp1.Models.Product", b =>
                 {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "BidderDetail")
+                        .WithMany()
+                        .HasForeignKey("Bidder");
+
                     b.HasOne("WebApp1.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
@@ -388,7 +464,18 @@ namespace WebApp1.Migrations
 
                     b.Navigation("AspNetUsers");
 
+                    b.Navigation("BidderDetail");
+
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("WebApp1.Models.Review", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AspNetUsers")
+                        .WithMany()
+                        .HasForeignKey("AspNetUsersId");
+
+                    b.Navigation("AspNetUsers");
                 });
 #pragma warning restore 612, 618
         }

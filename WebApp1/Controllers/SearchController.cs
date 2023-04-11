@@ -33,7 +33,7 @@ namespace WebApp1.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.Include(c => c.Category)
+            var product = await _context.Products.Include(c => c.Category).Include(c=>c.AspNetUsers)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -161,113 +161,12 @@ namespace WebApp1.Controllers
         }
 
 
-        // POST: Search/Create
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Cost,Asset_condition,Category,Image")] Product product)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(product);
-        }
+   
+        
+      
 
-        // GET: Search/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Products == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return View(product);
-        }
-
-        // POST: Search/Edit/5
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Cost,Asset_condition,Category,Image")] Product product)
-        {
-            if (id != product.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(product);
-        }
-
-        // GET: Search/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Products == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-
-        // POST: Search/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Products == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Product'  is null.");
-            }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
-        }
-
+       
         [HttpPost]
         public async Task<IActionResult> IncrementCost(int id)
         {
@@ -277,8 +176,9 @@ namespace WebApp1.Controllers
                 return NotFound();
             }
             double Cost = Convert.ToDouble(product.Cost);
-            Cost = Cost + 1;
+            Cost = Math.Round(Cost +Cost * 0.01,2);
             product.Cost = Cost.ToString();
+            product.Bidder = User.Identity.Name;
             _context.Update(product);
             await _context.SaveChangesAsync();
 

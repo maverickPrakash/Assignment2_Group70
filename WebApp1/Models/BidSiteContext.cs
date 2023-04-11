@@ -8,6 +8,8 @@ namespace WebApp1.Models
             : base(options) { }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Bid> Bids { get; set; }
         
         
 

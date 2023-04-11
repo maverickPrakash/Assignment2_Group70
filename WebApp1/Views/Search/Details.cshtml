@@ -36,14 +36,24 @@
                             </div><br />
                             <hr />
                             <div class="cart mt-4 align-items-center" style="float:right">
-                                
+                                 
 
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        <form method="post" asp-action="IncrementCost" asp-controller="Search">
+                                        @if (@User.Identity.Name != @Model.AspNetUsers.UserName)
+                                        
+                                     {
+                                        
+
+                                         <form method="post" asp-action="IncrementCost" asp-controller="Search">
                                         <input type="hidden" name="id" value="@Model.Id" />
                                         <button type="submit" class="btn btn-primary mr-2 px-4">Add Bid</button>
                                         </form>
+                                     }  else {
+                                              <a class="btn btn-primary mr-2 px-4">You are seller for item</a>
+                                            
+                                        }
+
                                     }
                                     else
                                     {

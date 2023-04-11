@@ -77,9 +77,11 @@
                 <span class="text-danger">@Html.ValidationMessageFor(model => model.Image)</span>
             </div>
             <div class="form-btn">
-                <input type="submit" value="Create" class="btn-primary" />
+                <input type="submit" value="Add" class="btn-primary" />
+                <a asp-action="index" asp-controller="Seller" type="button" class="btn btn-danger">Cancel</a>
             </div>
             </fieldset>
+            <input hidden value="open" asp-for="status" />
         </form>
     </div>
 </div>

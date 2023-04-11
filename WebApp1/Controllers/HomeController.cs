@@ -19,6 +19,7 @@ namespace WebApp1.Controllers
         public IActionResult Index()
         {
 
+            
             return View(_BidSiteContext.Products.OrderByDescending(c=> c.Id).Take(8).ToList());
         }
 

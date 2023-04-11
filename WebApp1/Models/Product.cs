@@ -27,16 +27,18 @@ namespace WebApp1.Models
         public DateTime ExpiryBidDate { get; set; }
         [Range(1,6, ErrorMessage="Select Correct Category")]
         public int CategoryId { get; set; }
+        public String status { get; set; }
         public Category? Category { get; set; }
         [ForeignKey("AspNetUsers")]
         public string? Username { get; set; }
-
-        internal void Include(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public virtual IdentityUser AspNetUsers { get; set; }
+
+        [ForeignKey("BidderDetail")]
+        public string? Bidder { get; set; }
+
+        public virtual IdentityUser BidderDetail { get; set; }
+
 
 
         public string Slug => Name==null? "" : Name.Replace(" ", "-");
