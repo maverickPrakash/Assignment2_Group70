@@ -10,7 +10,7 @@ namespace WebApp1.Models
         
         public string Bidder { get; set; }
 
-        public int Cost { get; set; }
+        public Double Cost { get; set; }
         public string Bidstatus { get; set; }
     }
 }

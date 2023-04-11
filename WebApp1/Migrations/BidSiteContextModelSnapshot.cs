@@ -240,8 +240,8 @@ namespace WebApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Cost")
-                        .HasColumnType("int");
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

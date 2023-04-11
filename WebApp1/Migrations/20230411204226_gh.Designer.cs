@@ -12,8 +12,8 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230411200828_gg")]
-    partial class gg
+    [Migration("20230411204226_gh")]
+    partial class gh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -242,8 +242,8 @@ namespace WebApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Cost")
-                        .HasColumnType("int");
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

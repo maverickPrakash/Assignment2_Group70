@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApp1.Migrations
 {
-    public partial class gg : Migration
+    public partial class gh : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,7 +56,7 @@ namespace WebApp1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Bidder = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cost = table.Column<int>(type: "int", nullable: false),
+                    Cost = table.Column<double>(type: "float", nullable: false),
                     Bidstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
