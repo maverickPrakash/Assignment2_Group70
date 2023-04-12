@@ -22,15 +22,16 @@
         <td>Decision</td>
         <td>@prop.Bidstatus</td>
     </tr>
+    
         @{
-            if (@prop.Bidstatus == "Win")
+            if (@prop.Bidstatus == "Approved")
             {
-                <a asp-controller="buyer" asp-action="pay" asp-route-cost="@prop.Cost" class="btn btn-btn-primary" >Make Payment</a>
+               <td> <a asp-controller="buyer" asp-action="pay" asp-route-cost="@prop.Cost" class="btn btn-primary" >Make Payment</a></td>
             }
 
             if (@prop.Bidstatus == "Completed")
             {
-                <a asp-controller="buyer" asp-action="pay" asp-route-item="@prop.Cost" class="btn btn-btn-primary" >Add Review</a>
+               <td> <a asp-controller="buyer" asp-action="pay" asp-route-item="@prop.Cost" class="btn btn-btn-primary" >Add Review</a></td>
             }
         }
     <tr>

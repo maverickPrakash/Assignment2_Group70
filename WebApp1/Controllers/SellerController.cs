@@ -58,6 +58,17 @@ namespace WebApp1.Controllers
             return View(_BidSiteContext.Bids.Include(c => c.Product));
         }
 
+        public IActionResult approve(int id)
+        {
+            var item = _BidSiteContext.Bids.Find(id);
+            item.Bidstatus = "Approved";
+            _BidSiteContext.Bids.Update(item);
+            _BidSiteContext.SaveChanges();
+
+
+            return RedirectToAction(nameof(bidder));
+        }
+
         public IActionResult AddItem()
         {
             var product = new Product();
