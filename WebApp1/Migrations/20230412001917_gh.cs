@@ -49,22 +49,6 @@ namespace WebApp1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Bids",
-                columns: table => new
-                {
-                    BidId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Bidder = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cost = table.Column<double>(type: "float", nullable: false),
-                    Bidstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bids", x => x.BidId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
@@ -184,29 +168,6 @@ namespace WebApp1.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reviews",
-                columns: table => new
-                {
-                    ReviewId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SellerUsername = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BuyerUsername = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    star = table.Column<int>(type: "int", nullable: false),
-                    message = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AspNetUsersId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
-                    table.ForeignKey(
-                        name: "FK_Reviews_AspNetUsers_AspNetUsersId",
-                        column: x => x.AspNetUsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -242,6 +203,61 @@ namespace WebApp1.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bids",
+                columns: table => new
+                {
+                    BidId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Bidder = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cost = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bidstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bids", x => x.BidId);
+                    table.ForeignKey(
+                        name: "FK_Bids_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    sellerUsername = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    buyerUsername = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    star = table.Column<int>(type: "int", nullable: false),
+                    message = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_Reviews_AspNetUsers_buyerUsername",
+                        column: x => x.buyerUsername,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reviews_AspNetUsers_sellerUsername",
+                        column: x => x.sellerUsername,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reviews_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -298,6 +314,11 @@ namespace WebApp1.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bids_ProductId",
+                table: "Bids",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_Bidder",
                 table: "Products",
                 column: "Bidder");
@@ -313,9 +334,19 @@ namespace WebApp1.Migrations
                 column: "Username");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_AspNetUsersId",
+                name: "IX_Reviews_buyerUsername",
                 table: "Reviews",
-                column: "AspNetUsersId");
+                column: "buyerUsername");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_ProductId",
+                table: "Reviews",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_sellerUsername",
+                table: "Reviews",
+                column: "sellerUsername");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -339,19 +370,19 @@ namespace WebApp1.Migrations
                 name: "Bids");
 
             migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
                 name: "Reviews");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

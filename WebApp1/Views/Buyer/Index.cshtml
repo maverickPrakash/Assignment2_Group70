@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Bid>
+
+@{
+    Layout = "_buyerPanelTemplate";
+}
+
+<h2 class="seller-head">Bids of Items</h2>
+
+@foreach(var prop in Model){
+<table class="item-table">
+    <tr>
+        <td>Item Name</td>
+        <td>@prop.Product.Name</td>
+    </tr>
+
+    <tr>
+        <td>Cost</td>
+        <td>@prop.Cost</td>
+    </tr>
+
+     <tr>
+        <td>Decision</td>
+        <td>@prop.Bidstatus</td>
+    </tr>
+        @{
+            if (@prop.Bidstatus == "Win")
+            {
+                <a asp-controller="buyer" asp-action="pay" asp-route-cost="@prop.Cost" class="btn btn-btn-primary" >Make Payment</a>
+            }
+
+            if (@prop.Bidstatus == "Completed")
+            {
+                <a asp-controller="buyer" asp-action="pay" asp-route-item="@prop.Cost" class="btn btn-btn-primary" >Add Review</a>
+            }
+        }
+    <tr>
+        
+    </tr>
+   
+  </table>
+  <br/><br/>
+}

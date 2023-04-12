@@ -21,6 +21,11 @@
                         <div class="product p-4">
                                 <div>@Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)</div><br />
                                 <div>@Html.DisplayNameFor(model => model.Cost):  @Html.DisplayFor(model => model.Cost)</div><br />
+                                <div>Next Bid Price : @{
+        double num1 = Convert.ToDouble(@Model.Cost);
+        double num2 = num1*0.01;
+        double sum = Math.Round(num1 + num2,2);
+    } @sum </div><br />
                            
                             <div>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</div><br />
                             <div>

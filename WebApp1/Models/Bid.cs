@@ -6,11 +6,14 @@ namespace WebApp1.Models
     {
         [Key]
         public int BidId { get; set; }
-        public int ProductId { get; set; }
         
+        public int ProductId { get; set; }
+
+        public Product Product { get; set; }
         public string Bidder { get; set; }
 
-        public Double Cost { get; set; }
+        public String Cost { get; set; }
         public string Bidstatus { get; set; }
+
     }
 }

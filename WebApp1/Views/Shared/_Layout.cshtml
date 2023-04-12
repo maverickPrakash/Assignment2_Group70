@@ -41,6 +41,17 @@
                     if (User.IsInRole("Seller"))
                     {
                        <li style="float: left"> <a asp-controller="Seller" asp-action="Index">Seller Panel</a> </li>
+                        <li style="float: left"> <a asp-controller="Buyer" asp-action="Index">Buyer Panel</a> </li>
+                    }
+
+                    if (User.IsInRole("Buyer"))
+                    {
+                       <li style="float: left"> <a asp-controller="Buyer" asp-action="Index">Buyer Panel</a> </li>
+                    }
+
+                     if (User.IsInRole("Admin"))
+                    {
+                       <li style="float: left"> <a asp-controller="Admin" asp-action="Index">Buyer Panel</a> </li>
                     }
                 }
                 <li><a asp-action="QueueResult" asp-route-item="Electronic" asp-controller="Search" class="elc">Electronics</a></li>

@@ -176,15 +176,17 @@ namespace WebApp1.Controllers
                 return NotFound();
             }
             double Cost = Convert.ToDouble(product.Cost);
+            Bid bid = new Bid();
+            bid.Cost = Cost.ToString();
             Cost = Math.Round(Cost +Cost * 0.01,2);
             product.Cost = Cost.ToString();
             _context.Update(product);
             await _context.SaveChangesAsync();
 
-            Bid bid = new Bid();
+            
             bid.ProductId = product.Id;
             bid.Bidder = User.Identity.Name;
-            bid.Cost =Cost;
+            
             bid.Bidstatus = "Pending";
             _context.Add(bid);
             await _context.SaveChangesAsync();

@@ -53,6 +53,10 @@ namespace WebApp1.Controllers
             
             
         }
+        public IActionResult bidder()
+        {
+            return View(_BidSiteContext.Bids.Include(c => c.Product));
+        }
 
         public IActionResult AddItem()
         {
@@ -104,6 +108,7 @@ namespace WebApp1.Controllers
 
            
         }
+        
 
     }
 }

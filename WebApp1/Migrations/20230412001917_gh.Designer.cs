@@ -12,7 +12,7 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230411204226_gh")]
+    [Migration("20230412001917_gh")]
     partial class gh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -242,13 +242,16 @@ namespace WebApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Cost")
-                        .HasColumnType("float");
+                    b.Property<string>("Cost")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("BidId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Bids");
                 });
@@ -367,30 +370,29 @@ namespace WebApp1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
 
-                    b.Property<string>("AspNetUsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BuyerUsername")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SellerUsername")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("buyerUsername")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("message")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sellerUsername")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("star")
                         .HasColumnType("int");
 
                     b.HasKey("ReviewId");
 
-                    b.HasIndex("AspNetUsersId");
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("buyerUsername");
+
+                    b.HasIndex("sellerUsername");
 
                     b.ToTable("Reviews");
                 });
@@ -446,6 +448,17 @@ namespace WebApp1.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WebApp1.Models.Bid", b =>
+                {
+                    b.HasOne("WebApp1.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("WebApp1.Models.Product", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "BidderDetail")
@@ -471,11 +484,25 @@ namespace WebApp1.Migrations
 
             modelBuilder.Entity("WebApp1.Models.Review", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AspNetUsers")
+                    b.HasOne("WebApp1.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("AspNetUsersId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("AspNetUsers");
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "BuyerUsername")
+                        .WithMany()
+                        .HasForeignKey("buyerUsername");
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "SellerUsername")
+                        .WithMany()
+                        .HasForeignKey("sellerUsername");
+
+                    b.Navigation("BuyerUsername");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("SellerUsername");
                 });
 #pragma warning restore 612, 618
         }
