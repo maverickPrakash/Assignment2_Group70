@@ -160,13 +160,215 @@ namespace WebApp1.Controllers
 
         }
 
+        public IActionResult Search(string? value)
+        {
+
+            ViewBag.category = _context.Categories;
+
+            var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) || c.Description.Contains(value));
+            return View("index",item);
+        }
+        [HttpPost]
+        public IActionResult Search(string? value, string? costNameSort, int? categorySort, int? Status)
+        {
+            ViewBag.cate = Status;
+            ViewBag.category = _context.Categories;
+            if (Status == 0)
+            {
+                if (categorySort == 0)
+                {
+
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) || c.Description.Contains(value)).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) || c.Description.Contains(value)).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) || c.Description.Contains(value)).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+                }
+                else
+                {
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
 
 
-   
-        
-      
+                }
 
-       
+
+            }else if (Status == 1)
+            {
+                if (categorySort == 0)
+                {
+
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("open") || c.Description.Contains(value) && c.status.Contains("open")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("open") || c.Description.Contains(value) && c.status.Contains("open")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("open") || c.Description.Contains(value) && c.status.Contains("open")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+                }
+                else
+                {
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("open")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("open")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("open")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+
+                }
+
+            }else if (Status == 2)
+            {
+                if (categorySort == 0)
+                {
+
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("sold") || c.Description.Contains(value) && c.status.Contains("sold")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("sold") || c.Description.Contains(value) && c.status.Contains("sold")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("sold") || c.Description.Contains(value) && c.status.Contains("sold")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+                }
+                else
+                {
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("sold")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("sold")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("sold")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+
+                }
+
+            }else if (Status == 3)
+            {
+                if (categorySort == 0)
+                {
+
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("close") || c.Description.Contains(value) && c.status.Contains("close")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("close") || c.Description.Contains(value) && c.status.Contains("close")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.Name.Contains(value) && c.status.Contains("close") || c.Description.Contains(value) && c.status.Contains("close")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+                }
+                else
+                {
+                    if (costNameSort == "1")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("close")).OrderBy(c => c.Name).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "2")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("close")).OrderByDescending(c => c.Cost).ToList();
+                        return View("index", item);
+                    }
+                    else if (costNameSort == "3")
+                    {
+                        var item = _context.Products.Include(x => x.Category).Where(c => c.CategoryId == categorySort && c.status.Contains("close")).OrderBy(c => c.Cost).ToList();
+
+                        return View("index", item);
+                    }
+
+
+                }
+
+            }
+
+
+
+            return View("index");
+
+        }
+
+
+
+
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> IncrementCost(int id)
         {
@@ -175,6 +377,7 @@ namespace WebApp1.Controllers
             {
                 return NotFound();
             }
+
             double Cost = Convert.ToDouble(product.Cost);
             Bid bid = new Bid();
             bid.Cost = Cost.ToString();
@@ -190,6 +393,7 @@ namespace WebApp1.Controllers
             bid.Bidstatus = "Pending";
             _context.Add(bid);
             await _context.SaveChangesAsync();
+            TempData["AlertMessage"] = "Bid is added.";
 
             return RedirectToAction("Details", "Search", new { id = product.Id });
 

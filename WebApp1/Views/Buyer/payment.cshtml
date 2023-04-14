@@ -1,0 +1,84 @@
+﻿
+
+@model Payment;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_buyerPanelTemplate";
+}
+<h2 class="add">Payment</h2>
+<hr />
+@foreach (var pro in @ViewBag.Products)
+{
+    <div style="text-align:center" >
+   
+    
+    <img src="~/Images/@pro.Image" style="width:30%; height 30%">
+     <h1> Product : @pro.Name</h1>
+     <h1> Cost : @ViewBag.Cost</h1>
+    </div>
+
+}
+<div class="create">
+    <div class="col-md-12">
+       
+        <form asp-action="comPay" asp-controller="buyer" enctype="multipart/form-data" method="post" class="create_form">
+            <fieldset>
+                <legend>Payment Deatils</legend>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label  asp-for="address" class="control-label">Address</label>
+                <input asp-for="address" class="input-control"  placeholder="Address"/>
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.address)</span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="city" class="control-label">City</label>
+                <input asp-for="city" class="input-control" placeholder="city" ></input>
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.city)</span>
+            </div>
+            
+            <div class="form-group">
+                <label  asp-for="Province" class="control-label">Province</label>
+                <input asp-for="Province"  class="input-control" placeholder="Ontario" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.Province)</span>
+            </div> <div class="form-group">
+                <label  asp-for="Postal" class="control-label">Postal</label>
+                <input asp-for="Postal"  class="input-control" placeholder="M5V1K5" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.Postal)</span>
+            </div> <div class="form-group">
+                <label  asp-for="country" class="control-label">Country</label>
+                <input asp-for="country"  class="input-control" placeholder="Canada" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.country)</span>
+            </div> <div class="form-group">
+                <label  asp-for="cardnumber" class="control-label">Card Number:</label>
+                <input asp-for="cardnumber"  class="input-control" placeholder="4999123489714256" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.cardnumber)</span>
+            </div> <div class="form-group">
+                <label  asp-for="Expiry" class="control-label">Expiry</label>
+                <input asp-for="Expiry"  class="input-control" placeholder="MMYY" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.Expiry)</span>
+            </div> <div class="form-group">
+                <label  asp-for="CCV" class="control-label">CCV</label>
+                <input asp-for="CCV"  class="input-control" placeholder="CCV" />
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.CCV)</span>
+      
+                <input asp-for="BidId" hidden value="@ViewBag.bid" class="input-control" />
+            <div class="form-btn">
+                <input type="submit" value="Make Payment" class="btn-primary" />
+                <a asp-action="index" asp-controller="buyer" type="button" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="back">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ Html.RenderPartial("_ValidationScriptsPartial");}
+}

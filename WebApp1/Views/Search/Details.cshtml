@@ -6,6 +6,10 @@
 
 <h1 class="det">Details</h1>
 <hr />
+@if(TempData["AlertMessage"] != null)
+{
+    <script>alert('@TempData["AlertMessage"]')</script>
+}
 <div class="container mt-5 mb-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -21,6 +25,7 @@
                         <div class="product p-4">
                                 <div>@Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)</div><br />
                                 <div>@Html.DisplayNameFor(model => model.Cost):  @Html.DisplayFor(model => model.Cost)</div><br />
+                                <div>@Html.DisplayNameFor(model => model.Username): <a style="color:blue" asp-controller="home" asp-action="sellerReview" asp-route-seller="@Model.AspNetUsers.UserName" > @Html.DisplayFor(model => model.AspNetUsers.UserName) </a></div><br />
                                 <div>Next Bid Price : @{
         double num1 = Convert.ToDouble(@Model.Cost);
         double num2 = num1*0.01;
@@ -48,6 +53,7 @@
                                         @if (@User.Identity.Name != @Model.AspNetUsers.UserName)
                                         
                                      {
+                                         
                                         
 
                                          <form method="post" asp-action="IncrementCost" asp-controller="Search">

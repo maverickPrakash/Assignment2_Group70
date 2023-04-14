@@ -12,7 +12,7 @@ using WebApp1.Models;
 namespace WebApp1.Migrations
 {
     [DbContext(typeof(BidSiteContext))]
-    [Migration("20230412001917_gh")]
+    [Migration("20230412210750_gh")]
     partial class gh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -370,29 +370,25 @@ namespace WebApp1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
 
+                    b.Property<int>("BidId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<string>("buyerUsername")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sellerUsername")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("star")
                         .HasColumnType("int");
 
                     b.HasKey("ReviewId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("buyerUsername");
-
-                    b.HasIndex("sellerUsername");
 
                     b.ToTable("Reviews");
                 });
@@ -480,29 +476,6 @@ namespace WebApp1.Migrations
                     b.Navigation("BidderDetail");
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("WebApp1.Models.Review", b =>
-                {
-                    b.HasOne("WebApp1.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "BuyerUsername")
-                        .WithMany()
-                        .HasForeignKey("buyerUsername");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "SellerUsername")
-                        .WithMany()
-                        .HasForeignKey("sellerUsername");
-
-                    b.Navigation("BuyerUsername");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("SellerUsername");
                 });
 #pragma warning restore 612, 618
         }

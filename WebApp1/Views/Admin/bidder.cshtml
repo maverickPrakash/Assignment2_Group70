@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<Bid>
 
 @{
-    Layout = "_sellerPanelTemplate";
+    Layout = "_adminPanelTemplate";
 }
 
 <h2 class="seller-head">Bidder</h2>
 
 @foreach(var prop in Model){
-    @if (@prop.Product.Username ==@ViewBag.User ) { 
-    <table class="item-table">
+
+<table class="item-table">
     <tr>
         <td>Item Name</td>
         <td>@prop.Product.Name</td>
     </tr>
+    <tr></tr>
 
     <tr>
         <td>Cost</td>
@@ -32,17 +33,11 @@
                
             
 
-        
-    <tr>
-        <td> <a asp-controller="Seller" asp-action="approve" asp-route-id="@prop.BidId" class="btn btn-primary" >Approve Bid</a>
-         <a asp-controller="Seller" asp-action="reject" asp-route-id="@prop.Cost" class="btn btn-danger" > Reject Bid</a></td>
-        
-    </tr>
-
-    
-    
+     
    
   </table>
   <br/><br/>
-  }
+
+   
+  
 }

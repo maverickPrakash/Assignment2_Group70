@@ -26,12 +26,12 @@
         @{
             if (@prop.Bidstatus == "Approved")
             {
-               <td> <a asp-controller="buyer" asp-action="pay" asp-route-cost="@prop.Cost" class="btn btn-primary" >Make Payment</a></td>
+               <td> <a asp-controller="buyer" asp-action="payment"  asp-route-cost="@prop.Cost" asp-route-productId="@prop.ProductId" asp-route-cost="@prop.Cost" asp-route-bid="@prop.BidId" class="btn btn-primary" >Make Payment</a></td>
             }
 
             if (@prop.Bidstatus == "Completed")
             {
-               <td> <a asp-controller="buyer" asp-action="pay" asp-route-item="@prop.Cost" class="btn btn-btn-primary" >Add Review</a></td>
+               <td> <a asp-controller="buyer" asp-action="review" asp-route-product="@prop.ProductId" asp-route-buyer="@User.Identity.Name" asp-route-bid="@prop.BidId" class="btn btn-primary" >Add Review</a></td>
             }
         }
     <tr>

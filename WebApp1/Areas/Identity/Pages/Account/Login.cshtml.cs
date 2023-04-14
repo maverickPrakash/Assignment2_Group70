@@ -126,7 +126,10 @@ namespace WebApp1.Areas.Identity.Pages.Account
                     Debug.WriteLine("==================================");
                     if (roles[0] == "Buyer")
                     {
-                        return LocalRedirect("~/");
+                        return LocalRedirect("~/Buyer");
+                    }else if(roles[0] == "Admin")
+                    {
+                        return LocalRedirect("~/Admin");
                     }
                     else
                     {

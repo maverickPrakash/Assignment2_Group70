@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Review>;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div style="margin:20%"></div>
+
+    <h3>Seller Review : @ViewBag.Seller</h3>
+ 
+      
+@foreach (var item in Model)
+{
+   <table class="item-table">
+    <tr>
+        <td>Review by :</td>
+        <td>@item.buyerUsername</td>
+    </tr>
+    <tr>
+        <td>Satisfaction out 5 :</td>
+        <td>@item.star</td>
+    </tr>
+    <tr>
+        <td>Message :</td>
+        <td>@item.message</td>
+    </tr>
+   
+  </table>
+
+  <br />
+  <br />
+       
+     
+
+    
+}
+
+

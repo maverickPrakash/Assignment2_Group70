@@ -16,8 +16,9 @@
                 <a asp-action="index" asp-controller="Home"><img src="~/logo.png" class="logo" /></a>
             </div>
             <div class="search-bar">
-                <form asp-controller="Search" asp-action="QueueResult">
-                    <input type="text" name="item" class="txtSearch" />
+               
+                <form asp-controller="Search" method="get" asp-action="Search">
+                    <input type="text" name="value"  id="value" class="txtSearch" />
                     <input type="submit" value="Search" class="btn btn btn-warning searchButton">
                 </form>
             </div>
@@ -51,7 +52,7 @@
 
                      if (User.IsInRole("Admin"))
                     {
-                       <li style="float: left"> <a asp-controller="Admin" asp-action="Index">Buyer Panel</a> </li>
+                       <li style="float: left"> <a asp-controller="Admin" asp-action="Index">Admin Panel</a> </li>
                     }
                 }
                 <li><a asp-action="QueueResult" asp-route-item="Electronic" asp-controller="Search" class="elc">Electronics</a></li>

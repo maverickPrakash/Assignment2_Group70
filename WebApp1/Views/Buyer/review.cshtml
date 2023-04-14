@@ -1,0 +1,85 @@
+﻿@model WebApp1.Models.Review
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+   Layout = "_buyerPanelTemplate";
+}
+
+<h2 class="add">Add Review</h2>
+<hr />
+
+
+
+<div class="create">
+    <div class="col-md-12">
+       
+        <form asp-action="addReview" asp-controller="buyer" enctype="multipart/form-data" method="post" class="create_form">
+            <fieldset>
+                <legend>Review Deatils</legend>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @foreach (var pro in @ViewBag.Products)
+{
+    <div style="text-align:center" >
+   
+    
+    <img src="~/Images/@pro.Image" style="width:30%; height 30%">
+     <h1> Product : @pro.Name</h1>
+    
+    </div>
+
+}
+            <div class="form-group">
+                <label  asp-for="sellerUsername" class="control-label">Seller</label>
+            
+    <input asp-for="sellerUsername" value="@ViewBag.SellerName" class="input-control"  />
+    <input asp-for="BidId" hidden value="@ViewBag.bid" class="input-control" />
+    <input asp-for="ProductId" hidden value="@ViewBag.ProductId" class="input-control" />
+
+
+                
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.sellerUsername)</span>
+            </div>
+            <div class="form-group">
+                <label  asp-for="buyerUsername" class="control-label">Buyer : </label>
+                <input asp-for="buyerUsername" class="input-control"  value="@User.Identity.Name" readonly/>
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.buyerUsername)</span>
+            </div>
+
+             <div class="form-group">
+                <label  asp-for="buyerUsername" class="control-label">Satisfaction : </label>
+                
+                <select asp-for="star">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+            </div>
+            
+
+             <div class="form-group">
+                <label  asp-for="message" class="control-label">Your point : </label>
+                <textarea asp-for="message" class="input-control"  placeholder="I like this product"> </textarea>
+                <span  class="text-danger">@Html.ValidationMessageFor(model => model.message)</span>
+            </div>
+            
+           
+            <div class="form-btn">
+                <input type="submit" value="Add Review" class="btn-primary" />
+                <a asp-action="index" asp-controller="buyer" type="button" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="back">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ Html.RenderPartial("_ValidationScriptsPartial");}
+}

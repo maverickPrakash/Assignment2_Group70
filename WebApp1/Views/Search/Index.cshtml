@@ -15,20 +15,42 @@
 <hr />
 
 
-    <div class="dropdown show" style="float: right; margin-right: 1rem">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort By
-        </a>
+    <div style="float: right; margin-right: 1rem">
+        
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Name" asp-route-order="DESC">Name</a>
-            <a class="dropdown-item" asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Cost" asp-route-order="DESC">Price High to Low</a>
-            <a class="dropdown-item" asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Cost" asp-route-order="ASC">Price Low to High</a>
-            <a class="dropdown-item" asp-action="QueueResultSort" asp-route-item="@ViewBag.Item" asp-route-field="Category" asp-route-order="DESC">Category</a>
-        </div>
+        
+           <form method="post">
+    @ViewBag.cate 
+    <select name="categorySort">
+        
+        <option value=0 >Category</option>
+        @foreach (var cat in @ViewBag.category)
+        {
+            <option value=@cat.CategoryId>@cat.CategoryName</option>
+        }
+    </select>
+    
+    <select name="costNameSort">
+        <option value="1">Name</option>
+        <option value="2">Cost:High to low</option>
+        <option  value="3">Cost:low to high</option>
+    </select>
+    <select name="Status">
+        <option value=0 >Status</option>
+        <option value="1">Open</option>
+        <option value="2">Sold</option>
+        <option  value="3">Close</option>
+    </select>
+    <button type="submit">filter</button
+   
+
+    
+</form>
+       
     </div>
 
 <div style="margin-top: 5rem; margin-right:.5rem">
+    @if(Model!=null){
 @foreach (var item in Model)
 {
 <a asp-action="Details" asp-controller="Search" asp-route-id="@item.Id">
@@ -52,5 +74,6 @@
     </div>
 </div>
 </a>
+}
 }
 </div>

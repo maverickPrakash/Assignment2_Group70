@@ -55,6 +55,7 @@ namespace WebApp1.Controllers
         }
         public IActionResult bidder()
         {
+            ViewBag.User = User.Identity.GetUserId();
             return View(_BidSiteContext.Bids.Include(c => c.Product));
         }
 
