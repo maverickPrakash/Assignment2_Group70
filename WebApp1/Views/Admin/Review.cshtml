@@ -29,6 +29,9 @@
                 <td>@review.star / 5</td>
                 <td>@review.message</td>
                 </tr>
+                 <tr>
+        <td>   <a asp-controller="Admin" asp-action="ReviewDelete" asp-route-id="@review.ReviewId" class="btn btn-danger">Delete</a></td>
+    </tr>
                 
         }
         

@@ -48,6 +48,18 @@ namespace WebApp1.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        [HttpGet]
+        public IActionResult ReviewDelete(int id)
+        {
+            var item = _BidSiteContext.Reviews.Find(id);
+            _BidSiteContext.Remove(item);
+            _BidSiteContext.SaveChanges();
+
+            return RedirectToAction(nameof(Review));
+           
+        }
+       
         public IActionResult SiteUsers() {
             ViewBag.users = _BidSiteContext.Users.Select(c=> new { c.UserName, c.Email });
             
